@@ -1,0 +1,300 @@
+<!DOCTYPE html> {% load static %}
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Handbook</title>
+    <link rel="shortcut icon" href="/media/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/media/sidebar/sidebar.css">
+    <script src="/media/sidebar/sidebar.js"></script>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'comity/styles/style.css' %}">
+    <link rel="stylesheet" href="/media/fontawesome-free-5.8.1-web/css/all.css">
+    <!-- <link rel="stylesheet" href="{% static 'comity/styles/weloveiconfonts.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'comity/styles.css' %}">
+    <script src="{% static 'comity/js/src.js' %}"></script>
+</head>
+<body>
+        <style>
+            .h4, h4 {
+            font-size: 1.2rem;
+            }    
+            hr{
+            height: 1px;
+            color: white;
+            background-color:white;
+            border: none;
+            }
+        .sidenav a{
+            text-decoration: none;
+            color:white !important;
+        }
+                </style>
+        <div id="mySidenav" class="sidenav mobsidebar" style="z-index: 1200">
+                <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
+                
+                    <a href="{% url 'contacts:index' %}"><i class="far fa-address-card"></i>&nbsp;Contacts</a>
+                    <a href="{% url 'calender:index' %}"><i class="far fa-calendar-alt"></i>&nbsp;Calender</a>
+                    <a href="{% url 'syllabus:index' %}"><i class="fas fa-book"></i>&nbsp;Syllabus</span></a>
+                    <a href="{% url 'comity:index' %}"><i class="fas fa-users"></i>&nbsp;Committees</a>
+                    <a href="{% url 'quickReference:index' %}"><i class="fas fa-qrcode"></i>&nbsp;QuickReference</a>
+                    <a href="{% url 'administration:index' %}"><i class="fas fa-user-shield"></i>&nbsp;Administration</a> 
+                    <a href="{% url 'TimeTable:index' %}"><i class="fas fa-table"></i>&nbsp;Time Table</a> 
+                    <a href="{% url 'about:index' %}"><i class="fas fa-info-circle"></i>&nbsp;About</a>     
+              </div>
+            <header style="z-index: 1526" >
+                <div class="wrap" style="max-width: 1000px;">
+                    <a href="#hello">
+                        <div class="logo"><i class="fas fa-book-open"></i></div>
+                    </a>
+                    <ul class="sidedisp">
+                    <span style="font-size:30px;cursor:pointer;transition: 1s;" id="open" onclick="openNav()">&#9776;</span>
+                    <span style="margin-top: -25px;font-size: 60px;cursor:pointer;display: none;transition: 1s;" id="close" onclick="closeNav()">&times;</span>
+            
+                    </ul>
+                    <ul class="compdisp  compsidebar">
+                        <a href="{% url 'contacts:index' %}"><li>Contacts</li></a>
+                        <a  href="{% url 'calender:index' %}" ><li>Calender</li></a>
+                        <a href="{% url 'syllabus:index' %}" ><li>Syllabus</li></a>
+                        <a href="{% url 'comity:index' %}"><li style="background-color:#88b2be ;border-radius:5px;padding:10px 20px 10px 20px;">Committees</li></a>
+                        <a href="{% url 'quickReference:index' %}"><li>QuickReference</li></a>
+                        <a href="{% url 'administration:index' %}"><li>Administration</li></a> 
+                        <a href="{% url 'TimeTable:index' %}"><li>&nbsp;Time Table</li></a> 
+                        <a href="{% url 'about:index' %}"><li>&nbsp;About</li></a> 
+                    </ul>
+                </div>
+            </header>
+
+
+    <!-- template -->
+    <!-- Team -->
+<style>
+
+
+
+@media screen and (min-width:1410px){
+    #myComm{
+      width: 200px !important;
+    }
+    .sideId{
+        font-size: 20px !important;
+    }
+    #myComm2{
+        font-size: 30px !important;
+    }
+}
+.frontside .card .card-title, .backside .card .card-title {
+    min-height: 44px;
+    color: #007b5e !important;
+}
+.h4, h4 {
+    font-size: 1.1rem;
+}   
+   
+</style>
+
+    <div  style="cursor: pointer;top:250px;color: #66dcec;position: fixed;margin-left: 10px;"  onclick="openComm()">
+        <i class="fas fa-align-left fa-2x"></i>
+    </div>
+
+    <div class="hidden" onclick="closeNav(); closeComm();" >
+        
+        <div>
+        {% if comity %}
+        <div id="myComm" style="left: 0;top: 60px;width: 0px;transition: 0.5s;z-index: 1199;position: fixed;background-color: #1a252f;height: 100%;">
+               <h3 style="color: white;font-size: 0px;transition: 0.3s;" id="myComm2"> Committees</h3>
+               <hr>
+            {% for com in comity %}
+            <div style="margin-bottom: 15px">
+                <a href="#{{ com.comity_name }}" class="sideId" style="transition: 0.3s;font-size: 0px;text-decoration: none;font-weight: 700;color: white;display: block;margin-bottom: 6px;">
+                    {{ com.comity_name }}
+                </a> 
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+        {% endif %}
+        <section id="team" class="pb-5">
+            <div class="container otherPageHeader" bgima>
+                <br>
+                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Members..">
+                <ul id="myUL">
+                    {% if comity %}
+                    <button id="doPrint">Print</button>
+
+                    {% for com in comity %}
+                    <div id="printDiv">
+                        <li name="MyLi"  id="{{ com.comity_name }}">
+                            <div align="center">
+
+                                <H1>{{ com.comity_name }}</H1>
+                                <br>
+                            </div>
+                        </li>
+                        <div class="row comp">
+                            {% for members in member %}
+                            <!-- Team member -->
+
+                            {% if com.id == members.comity_id %}
+
+                            <li name="MyLi">
+                                <div class="col-xs-12 col-sm-6 col-md-4">
+                                    <div>
+                                        <div class="mainflip">
+                                            <div class="frontside" style="max-width: 12rem;min-width: 12rem;">
+                                                <div class="card">
+                                                    <div class="card-body text-center" style="height: 22rem">
+                                                        <p>
+                                                            <img class=" img-fluid" src="http://www.jecc.ac.in/uploads/staffs/{{members.jecc_code}}.jpg"
+                                                                alt="{{members.Name}}">
+                                                        </p>
+                                                        <h4 class="card-title" style="margin-bottom: 0;">{{members.Member_name}}</h4>
+                                                        <p class="card-text">
+                                                            <br> {{members.designation}}
+                                                            <br> {{members.department}}
+                                                            <br>
+                                                            <i> {{ members.comity }}</i>
+                                                        </p>
+
+                                                        <!-- <a href="#" class="btn btn-primary btn-sm" ><i class="fa fa-plus"></i></a> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- ./Team member -->
+                            {% endif %} {% endfor %}
+                        </div>
+                        {% for members in member %}
+                                <!-- Team member -->
+    
+                                {% if com.id == members.comity_id %}
+                                <li name="MyLi">
+                        <div class="row mob">
+                                
+                                <div class="events-container mob">
+                                        <!-- <span class="events__title">Upcoming events this month</span> -->
+                                        <ul class="events__list">
+                                          <li class="events__item">
+                                            <div class="events__item--left">
+                                              <span class="events__name">{{members.Member_name}}</span>
+                                              <span class="events__date">{{members.designation}} of {{ members.comity }}</span>
+                                            </div>
+                                            <span class="events__tag">{{members.department}}</span>
+                                          </li>
+                                          
+                                        </ul>
+                                      </div>
+                        </div>
+                        </li>
+                        {% endif %} {% endfor %}
+                        {% endfor %}
+                    </div>
+                </ul>
+
+                </div>
+            </div>
+    
+    {% else %}
+    <p>No access records found!</p>
+    {% endif %}
+
+    </section>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- template end -->
+
+    </div>
+    <div class="footer" style="z-index: 150000000000">
+        <section id="footer">
+            <div id="logo_footer">
+                <a href="#hello">
+                    <div class="logo">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                </a>
+            </div>
+            <p>Digital Handbook
+                <br>Developed by TBI
+                <br>2019</p>
+        </section>
+    </div>
+    <script> 
+        function myFunction() {
+            // Declare variables
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById('myInput');
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("myUL");
+            li = ul.getElementsByTagName('li');
+
+            // Loop through all list items, and hide those who don't match the search query
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("div")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+    <script>
+        $(window).scroll(function () {
+            if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+                // ajax call get data from server and append to the div
+            }
+        });
+    </script>
+    <Script>
+        document.getElementById("doPrint").addEventListener("click", function () {
+            var printContents = document.getElementById('printDiv').innerHTML;
+            var originalContents = document.body.innerHTML;
+            document.body.innerHTML = printContents;
+            window.print();
+            document.body.innerHTML = originalContents;
+            setTimeout(function() { location.reload(); }, 500);
+            
+        });
+    </Script>
+
+
+<script>
+    function openComm() {
+    //   document.getElementById("myCommhide").style.display = "none";  
+    //   document.getElementById("myCommopen").style.display = "block"; 
+    var all = document.getElementsByClassName('sideId');
+        for (var i = 0; i < all.length; i++) {
+        all[i].style.fontSize = '20px';
+        }
+    //   document.getElementsByClassName("sideId").style.font = "20px";    
+    document.getElementById("myComm").style.width = "200px";
+    document.getElementById("myComm2").style.fontSize = "30px";
+
+    }
+    </script>
+    <script>
+        function closeComm() {
+        //   document.getElementById("myCommhide").style.display = "none";  
+        //   document.getElementById("myCommopen").style.display = "block"; 
+        var all = document.getElementsByClassName('sideId');
+            for (var i = 0; i < all.length; i++) {
+            all[i].style.fontSize = '0px';
+            }
+        //   document.getElementsByClassName("sideId").style.font = "20px";    
+        document.getElementById("myComm").style.width = "0px";
+    document.getElementById("myComm2").style.fontSize = "0px";
+
+        }
+        </script>
+</body>
+
+</html>

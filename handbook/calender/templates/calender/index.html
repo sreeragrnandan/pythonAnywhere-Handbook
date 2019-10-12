@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+{% load static %}
+{% load filename %}
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Handbook</title>
+    <link rel="shortcut icon" href="/media/favicon.ico" type="image/x-icon">
+    <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'calender/styles/style.css' %}">
+    <link rel="stylesheet" href="/media/fontawesome-free-5.8.1-web/css/all.css">
+    <link rel="stylesheet" href="{% static 'calender/styles.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+    <!-- cal styles -->
+
+    <link rel="stylesheet" href="{% static 'calender/calstyle.css' %}">
+    <link rel="stylesheet" href="{% static 'calender/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'calender/css/classy-nav.css' %}">
+    <link rel="stylesheet" href="{% static 'calender/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'calender/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'calender/css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'calender/css/font-awesome.min.css' %}">
+
+    <!-- cal styles -->
+    <script src="{% static 'calender/js/src.js' %}"></script>
+        <link rel="stylesheet" href="/media/sidebar/sidebar.css">
+    <script src="/media/sidebar/sidebar.js"></script>
+
+</head>
+<style>
+    #myUL li {
+        display: none;
+    }
+
+    @media only screen and (max-width: 767px) {
+        .mtop {
+            margin-top: 20px;
+        }
+    }
+</style>
+
+<body>
+        <style>
+                .sidenav a{
+                    font-weight: 100 !important;
+                }
+                </style>
+        <div id="mySidenav" class="sidenav mobsidebar" style="z-index: 1200">
+                <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
+
+                    <a href="{% url 'contacts:index' %}"><i class="far fa-address-card"></i>&nbsp;Contacts</a>
+                    <a href="{% url 'calender:index' %}"><i class="far fa-calendar-alt"></i>&nbsp;Calender</a>
+                    <a href="{% url 'syllabus:index' %}"><i class="fas fa-book"></i>&nbsp;Syllabus</a>
+                    <a href="{% url 'comity:index' %}"><i class="fas fa-users"></i>&nbsp;Committees</a>
+                    <a href="{% url 'quickReference:index' %}"><i class="fas fa-qrcode"></i>&nbsp;QuickReference</a>
+                    <a href="{% url 'administration:index' %}"><i class="fas fa-user-shield"></i>&nbsp;Administration</a>
+                    <a href="{% url 'TimeTable:index' %}"><i class="fas fa-table"></i>&nbsp;Time Table</a>
+                    <a href="{% url 'about:index' %}"><i class="fas fa-info-circle"></i>&nbsp;About</a>
+              </div>
+            <header style="z-index: 1526;" >
+                <div class="wrap" style="max-width: 1000px;">
+                    <a href="#hello">
+                        <div class="logo" style="padding: 0px">
+                              <img src="/media/LOOGO.png" height="55px" width="55px">
+                              <!-- <i class="fas fa-book-open"></i> -->
+                          </div>
+                    </a>
+                    <ul class="sidedisp">
+                    <span style="font-size:30px;cursor:pointer;transition: 1s;" id="open" onclick="openNav()">&#9776;</span>
+                    <span style="margin-top: -25px;font-size: 60px;cursor:pointer;display: none;transition: 1s;" id="close" onclick="closeNav()">&times;</span>
+
+                    </ul>
+
+                    <ul class="compdisp  compsidebar">
+                        <a href="{% url 'contacts:index' %}"><li>Contacts</li></a>
+                        <a  href="{% url 'calender:index' %}" ><li style="background-color:#88b2be ;border-radius:5px;padding:10px 20px 10px 20px;">Calender</li></a>
+                        <a href="{% url 'syllabus:index' %}" ><li>Syllabus</li></a>
+                        <a href="{% url 'comity:index' %}"><li>Committees</li></a>
+                        <a href="{% url 'quickReference:index' %}"><li>QuickReference</li></a>
+                        <a href="{% url 'administration:index' %}"><li>Administration</li></a>
+                        <a href="{% url 'TimeTable:index' %}"><li >&nbsp;Time Table</li></a>
+                        <a href="{% url 'about:index' %}"><li>&nbsp;About</li></a>
+                    </ul>
+                </div>
+            </header>
+<div onclick="closeNav()">
+    <!-- template -->
+
+    <!-- preloader -->
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="lds-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- preloader -->
+
+    <!-- ##### Breaking News Area Start ##### -->
+    {% if event %}
+
+    <section class="breaking-news-area" style="padding-top: 100px;margin:0px">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Breaking News Widget -->
+                    <div class="breaking-news-ticker d-flex flex-wrap align-items-center">
+                        <div class="title">
+                            <h6>Trending</h6>
+                        </div>
+                        <div id="breakingNewsTicker" class="ticker">
+
+                            <ul>
+                                {% for events in event %}
+                                {% if events.priority == "Trending" %}
+                                <li><a href="#" id="myBtn{{ events.id }}t" onclick="get_modal('t','{{ events.id }}')">
+                                        {{ events.title }} on {{events.date}} {% if  events.date.is_past_due %} abc
+                                        {% endif %} </a> </li>
+                                {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% for events in event %}
+    {% if events.priority == "Trending"  %}
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal{{ events.id }}t">
+        <div class="modal-dialog">
+            <div class="modal-content"  style="top:70px" >
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">{{ events.title }}</h4>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    {{ events.description }}
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- The Model -->
+
+    <!-- model script -->
+
+    <!-- Model script -->
+    {% endif %}
+    {% endfor %}
+
+    {% endif %}
+    <!-- ##### Breaking News Area End ##### -->
+
+    <!-- ##### Hero Area Start ##### -->
+    <div>
+        <div class="hero-area " style="padding-top: 30px;margin:0px">
+            <!-- Hero Post Slides -->
+            <div class="hero-post-slides owl-carousel ">
+
+                <!-- Single Slide -->
+                <div class="single-slider">
+                    <div class="container-fluid ">
+                        <div class="message">
+                            <div class="row">
+                                <!-- Single Blog Post Area -->
+                                <div class="col-12 col-md-6">
+                                    <div class="single-blog-post style-1">
+                                        <!-- Blog Thumbnail -->
+
+
+                                        <div class="blog-thumbnail bg-overlay">
+                                            <a href="#">
+
+                                                <img src="/media/images/academic-gone.jpg"
+                                                    onerror=this.src="{% static 'calender/default/jyothi-gone.jpg' %}"></a>
+
+                                        </div>
+                                        <!-- Blog Content -->
+                                        <div class="blog-content">
+                                            <span class="post-date">{{ events.date|date:"F j, Y" }}</span>
+                                            <a href="#" class="post-title" id="myBtn{{ events.id }}ge"
+                                                onclick="get_modal('ge','{{ events.id }}')"> Academic Calender </a>
+                                        </div>
+
+                                        <!-- The Modal -->
+
+                                        <!-- The Model -->
+
+                                        <!-- model script -->
+
+                                        <!-- Model script -->
+
+
+
+
+                                    </div>
+                                </div>
+
+
+                                <div class="col-12 col-md-6 mtop">
+                                    <!-- Single Blog Post Area -->
+                                    <div class="single-blog-post style-1 mb-30">
+                                        <!-- Blog Thumbnail -->
+
+                                        <div class="blog-thumbnail bg-overlay">
+
+                                            <a href="#">
+                                                <img src="/media/images/nonacademic-gtwo.jpg"
+                                                    onerror=this.src="{% static 'calender/default/jyothi-gtwo.jpg' %}">
+
+                                            </a>
+                                        </div>
+                                        <!-- Blog Content -->
+                                        <div class="blog-content">
+
+
+                                            <a href="#" class="post-title" id="myBtn{{ events.id }}ge2"
+                                                onclick="get_modal('ge2','{{ events.id }}')">Non-Academic Calender</a>
+                                        </div>
+                                    </div>
+                                    <!-- Single Blog Post Area -->
+                                    <div class="single-blog-post style-1">
+                                        <!-- Blog Thumbnail -->
+
+                                        <div class="blog-thumbnail bg-overlay">
+                                            <a href="#">
+
+                                                <img src="/media/images/classevents-gtwo.jpg"
+                                                    onerror=this.src="{% static 'calender/default/jyothi-gtwo.jpg' %}">
+
+                                            </a>
+                                        </div>
+
+                                        <!-- Blog Content -->
+                                        <div class="blog-content">
+
+                                            <a href="#" class="post-title" id="myBtnCege3"
+                                                onclick="get_modal('ge3','Ce')">Class Event Calender</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single Slide -->
+            </div>
+        </div>
+    </div>
+    <!-- ##### Hero Area End ##### -->
+
+
+    <!-- ##### Top News Area Start ##### -->
+
+
+    <div class="top-news-area section-padding-100" style="padding-bottom: 200px">
+        <div class="container">
+            <div align="center">
+                <h4>All Events</h4>
+            </div>
+            <div class="row">
+
+                <!-- Single News Area -->
+                <ul id="myUL">
+                    <br>
+                    <input type="text" id="myInput2"  onkeyup="myFunction(this)"
+                        style="margin-bottom: 25px" placeholder="Search for Events..">
+                    <br>
+
+                    {% for events in event %}
+                    {% if events.Event_type != "Class-Event"  %}
+                    <li name="MyLi">
+                        <div class="col-12 col-sm-6 col-lg-4" style="float: left;">
+                            <div class="single-blog-post style-2 mb-5">
+                                <!-- Blog Thumbnail -->
+                                <div class="blog-thumbnail">
+                                    <a href="#">
+                                        {% if events.Photo == "11ffe044ec04e" %}
+                                        <img src=""
+                                            onerror=this.src="{% static 'calender/default/jyothi-normal.jpg' %}">
+                                        {% else %}
+                                        <img src="/media/images/{{events.Photo| getfilename}}-normal.jpg" alt="">
+                                        {% endif %}
+                                    </a>
+                                </div>
+
+                                <!-- Blog Content -->
+                                <div class="blog-content">
+                                    <span class="post-date">{{ events.date|date:"F j, Y" }}</span>
+                                    <div style="max-height: 32.8px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;width: 350px;">
+                                    <a href="#" class="post-title" id="myBtn{{ events.id }}n"
+                                        onclick="get_modal('n','{{ events.id }}')"> {{ events.title }} </a>
+                                    </div>
+                                    <a href="#" class="post-author">by {{ events.By }}</a>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- The Modal -->
+                        <div class="modal fade" id="myModal{{ events.id }}n">
+                            <div class="modal-dialog">
+                                <div class="modal-content"  style="top:70px" >
+
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">{{ events.title }}</h4>
+                                        <button type="button" class="close" data-dismiss="modal">×</button>
+                                    </div>
+
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                        {{ events.description }}
+                                    </div>
+
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- The Model -->
+
+                        <!-- The Modal -->
+                        <!-- The Model -->
+                        <!-- model script -->
+
+                    </li>
+                    <!-- Model script -->
+                    {% endif %}
+
+                    {% endfor %}
+                </ul>
+
+                <!-- Single News Area -->
+
+
+
+                <div class="col-12" id="load">
+                    <div class="load-more-button text-center">
+                        <a href="#" id="loadMore" class="btn newsbox-btn">Load More</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+
+
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true" id="myModal{{ getId }}ge">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content"  style="top:70px" >
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title"> Academic Calender </h4>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <table class="table auto-index">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Sl.No</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Event</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% with sno="" %}
+                            {% for events in event %}
+                            {% if events.Event_type == "Academic"  %}
+                            <tr>
+                                <td></td>
+                                <td>{{ events.date }}</td>
+                                <td>{{ events.title }}</td>
+                            </tr>
+
+                            {% endif %}
+                            {% endfor %}
+                            {% endwith %}
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- The Modal Non-Academic Calender -->
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true" id="myModal{{ events.id }}ge2">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content"  style="top:70px" >
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Non Academic Calender</h4>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                        <table class="table auto-index">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col">Sl.No</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Event</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for events in event %}
+                                    {% if events.Event_type == "Non-Academic"  %}
+                                    <tr>
+                                        <td></td>
+                                        <td>{{ events.date }}</td>
+                                        <td>{{ events.title }}</td>
+                                    </tr>
+
+                                    {% endif %}
+                                    {% endfor %}
+
+                                </tbody>
+                            </table>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- The Model -->
+    <!-- The Modal -->
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true" id="myModalCege3">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content"  style="top:70px" >
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Class Event Calender</h4>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                        <table class="table auto-index">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col">Sl.No</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Event</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for events in event %}
+                                    {% if events.Event_type == "Class-Event"  %}
+                                    <tr>
+                                        <td></td>
+                                        <td>{{ events.date }}</td>
+                                        <td>{{ events.title }}</td>
+                                    </tr>
+
+                                    {% endif %}
+                                    {% endfor %}
+
+                                </tbody>
+                            </table>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- The Model -->
+    <!-- template end -->
+
+    </div>
+    <div class="footer">
+        <section id="footer">
+            <div id="logo_footer">
+                <a href="#hello">
+                    <div class="logo"><i class="fas fa-book-open"></i></div>
+                </a>
+            </div>
+            <p>Digital Handbook<br>Developed by TBI<br>2019</p>
+        </section>
+    </div>
+</div>
+    <script>
+        window.setInterval(function () {
+            $('.message').fadeOut(0).fadeIn(3000);
+        }, 6000);
+    </script>
+    <script>
+        $(window).scroll(function () {
+            if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+                // ajax call get data from server and append to the div
+            }
+        });
+    </script>
+    <Script>
+        function get_modal(modal_name, id) {
+            $("#myModal" + id + modal_name).modal();
+        }
+        function change_id(obj) {
+            if (obj.id == "myInput") {
+                document.getElementById("load").style.display = "block";
+                document.getElementById("myUL2").id = "myUL";
+                document.getElementById("myInput").id = "myInput2";
+                $(document).ready(function () {
+                    size_li = $("#myUL li").size();
+                    x = 6;
+                    $('#myUL li:lt(' + x + ')').show();
+                    $('#loadMore').click(function () {
+                        x = (x + 6 <= size_li) ? x + 6 : size_li;
+                        $('#myUL li:lt(' + x + ')').show();
+                    });
+                    $('#showLess').click(function () {
+                        x = (x - 6 < 0) ? 3 : x - 6;
+                        $('#myUL li').not(':lt(' + x + ')').hide();
+                    });
+                });
+
+            }
+
+        }
+        $(document).ready(function () {
+            size_li = $("#myUL li").size();
+            x = 6;
+            $('#myUL li:lt(' + x + ')').show();
+            $('#loadMore').click(function () {
+                x = (x + 6 <= size_li) ? x + 6 : size_li;
+                $('#myUL li:lt(' + x + ')').show();
+            });
+            $('#showLess').click(function () {
+                x = (x - 6 < 0) ? 3 : x - 6;
+                $('#myUL li').not(':lt(' + x + ')').hide();
+            });
+        });
+    </Script>
+
+    <!-- jQuery-2.2.4 js -->
+    <script>
+
+        function myFunction(obj) {
+            // Declare variables
+            if (obj.id == "myInput2") {
+                document.getElementById("load").style.display = "none";
+                document.getElementById("myUL").id = "myUL2";
+                document.getElementById("myInput2").id = "myInput";
+
+            }
+            var tetval = document.getElementById("myInput").value;
+            if (tetval=="") {
+                change_id(obj)
+
+            }
+
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById('myInput');
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("myUL2");
+            li = ul.getElementsByTagName('li');
+
+            // Loop through all list items, and hide those who don't match the search query
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("div")[1];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+
+    <script src="{% static 'calender/js/jquery/jquery-2.2.4.min.js' %} "></script>
+    <!-- Popper js -->
+    <script src="{% static 'calender/js/bootstrap/popper.min.js' %}"></script>
+    <!-- Bootstrap js -->
+    <script src="{% static 'calender/js/bootstrap/bootstrap.min.js' %}"></script>
+    <!-- All Plugins js -->
+    <script src="{% static 'calender/js/plugins/plugins.js' %}"></script>
+    <!-- Active js -->
+    <script src="{% static 'calender/js/active.js' %}"></script>
+
+
+</body>
+
+</html>

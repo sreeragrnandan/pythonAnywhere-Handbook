@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Handbook</title>
+    <link rel="shortcut icon" href="/media/favicon.ico" type="image/x-icon">
+
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'contacts/styles/style.css' %}">
+    <link rel="stylesheet" href="/media/fontawesome-free-5.8.1-web/css/all.css">
+    <!-- <link rel="stylesheet" href="{% static 'contacts/styles/weloveiconfonts.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'contacts/styles.css' %}">
+    <script src="{% static 'contacts/js/src.js' %}"></script>
+    <link rel="stylesheet" href="/media/sidebar/sidebar.css">
+    <script src="/media/sidebar/sidebar.js"></script>
+</head>
+        <body style="background: antiquewhite">
+<style>
+.h4, h4 {
+font-size: 1.2rem;
+}    
+.frontside, .backside{
+max-width: 12rem;min-width: 12rem;
+}
+@media only screen and (max-width: 480px){
+.frontside, .backside{
+max-width: 15rem;min-width: 15rem;
+}  
+}
+#team{
+    margin-bottom: 0px;
+}
+#footer{
+padding: 0px;
+}
+</style>
+                <div id="mySidenav" class="sidenav mobsidebar" style="z-index: 1200">
+                        <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
+                        
+                            <a href="{% url 'contacts:index' %}"><i class="far fa-address-card"></i>&nbsp;Contacts</a>
+                            <a href="{% url 'calender:index' %}"><i class="far fa-calendar-alt"></i>&nbsp;Calender</a>
+                            <a href="{% url 'syllabus:index' %}"><span  style="font-weight: 400;"><i class="fas fa-book"></i>&nbsp;Syllabus</span></a>
+                            <a href="{% url 'comity:index' %}"><i class="fas fa-users"></i>&nbsp;Committees</a>
+                            <a href="{% url 'quickReference:index' %}"><i class="fas fa-qrcode"></i>&nbsp;QuickReference</a>
+                            <a href="{% url 'administration:index' %}"><i class="fas fa-user-shield"></i>&nbsp;Administration</a> 
+                            <a href="{% url 'TimeTable:index' %}"><i class="fas fa-table"></i>&nbsp;Time Table</a> 
+                            <a href="{% url 'about:index' %}"><i class="fas fa-info-circle"></i>&nbsp;About</a>     
+                      </div>
+                    <header style="z-index: 1526" >
+                        <div class="wrap" style="max-width: 1000px;">
+                            <!-- <a href="#hello"> -->
+                                <div class="logo" style="padding: 0px">
+                                    <img src="/media/LOOGO.png" height="55px" width="55px">
+                                    <!-- <i class="fas fa-book-open"></i> -->
+                                </div>
+                            <!-- </a> -->
+                            <ul class="sidedisp">
+                            <span style="font-size:30px;cursor:pointer;transition: 1s;" id="open" onclick="openNav()">&#9776;</span>
+                            <span style="margin-top: -25px;font-size: 60px;cursor:pointer;display: none;transition: 1s;" id="close" onclick="closeNav()">&times;</span>
+                    
+                            </ul>
+                            <ul class="compdisp  compsidebar">
+                                <a href="{% url 'contacts:index' %}"><li style="background-color:#88b2be ;border-radius:5px;padding:10px 20px 10px 20px;">Contacts</li></a>
+                                <a  href="{% url 'calender:index' %}" ><li>Calender</li></a>
+                                <a href="{% url 'syllabus:index' %}" ><li>Syllabus</li></a>
+                                <a href="{% url 'comity:index' %}"><li>Committees</li></a>
+                                <a href="{% url 'quickReference:index' %}"><li>QuickReference</li></a>
+                                <a href="{% url 'administration:index' %}"><li>Administration</li></a> 
+                                <a href="{% url 'TimeTable:index' %}"><li>&nbsp;Time Table</li></a> 
+                                <a href="{% url 'about:index' %}"><li>&nbsp;About</li></a> 
+                            </ul>
+                        </div>
+                    </header>
+              
+
+         <!-- template -->
+    <!-- Team -->
+<section id="team" style="border-bottom:none;" onclick="closeNav()" class="pb-5">
+    <div class="container otherPageHeader" bgima>
+      <br>
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Contacts..">
+    
+        <ul id="myUL">
+        {% if departments %}
+        
+        {% for department in departments %}
+        <li name="MyLi">
+        <div align="center">
+        <H1>{{ department.department_name }}</H1><br>
+        </div></li>
+        <div class="row lidiv">
+           
+            {% for con in contact %}
+            
+            <!-- Team member -->
+            {% if department.id == con.departments_id %}
+           <li name="MyLi"> 
+               <div class="col-xs-12 col-sm-6 col-md-4 lidiv" >
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside" >
+                            <div class="card">
+                                <div class="card-body text-center" style="height: 22rem;">
+                                    <p><img class=" img-fluid" src="http://www.jecc.ac.in/uploads/staffs/{{con.jecc_code}}.jpg" alt="{{CON.Name}}"></p>
+                                   <h4 class="card-title" style="min-height: 55px">{{ con.Name }}</h4>
+                                    <p class="card-text" style="min-height: 76px;">{{con.Designation}} <br> {{ department.department_name }}</p>
+                                    <div class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="backside" style="height: 22rem">
+                            <div class="card">
+                                <div class="card-body text-center mt-4">
+                                    <h4 class="card-title">{{ con.Name }}</h4>
+                                    <p class="card-text">Qualification<br>{{con.Qualification}}</p>
+                                    <div class="list-inline">
+                                        <div class="list-inline-item" style="width: 10rem">
+                                            <i class="far fa-envelope"></i>&nbsp;
+                                            <a class="social-icon text-xs-center" target="_blank" href="mailto:{{ con.Email }}">
+                                                {{ con.Email }}
+                                            </a>
+                                        </div>
+                                        <br>
+                                        <div class="list-inline-item">
+                                                <i class="fas fa-phone-volume"></i> &nbsp;
+                                            <a class="social-icon text-xs-center" target="_blank" href="tel:{{con.Phone_Number}}">
+                                                {{ con.Phone_Number }}
+                                            </a>
+                                        </div>
+                                        <br> <br>
+                                        <div class="list-inline-item">
+                                                <i class="far fa-square"></i>
+                                        </div>
+                                        <div class="list-inline-item">
+                                                <i class="far fa-square"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+            <!-- ./Team member -->
+            {% endif %}
+            {% endfor %}
+           
+        </div>
+        {% endfor %}
+       
+        <!-- CSE DEPARTMENT -->
+
+    </div>
+    {% else %}
+        <p>No access records found!</p>
+        {% endif %}
+    </ul>
+</section>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- template end -->
+        
+      </div>
+      <div class="footer">
+      <section id="footer">
+            <div id="logo_footer">
+              <a href="#hello"><div class="logo"><i class="fas fa-book-open"></i></div></a>
+            </div>
+            <p>Digital Handbook<br>Developed by TBI<br>2019</p>
+          </section>
+          </div>
+          <script> 
+              function myFunction() {
+                // Declare variables
+                var input, filter, ul, li, a, i, txtValue;
+                input = document.getElementById('myInput');
+                filter = input.value.toUpperCase();
+                ul = document.getElementById("myUL");
+                li = ul.getElementsByTagName('li');
+              
+                // Loop through all list items, and hide those who don't match the search query
+                for (i = 0; i < li.length; i++) {
+                  a = li[i].getElementsByTagName("div")[0];
+                  txtValue = a.textContent || a.innerText;
+                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                  } else {
+                    li[i].style.display = "none";
+                  }
+                }
+              }
+              </script>
+</body>
+</html>

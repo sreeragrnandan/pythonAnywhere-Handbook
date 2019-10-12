@@ -1,0 +1,112 @@
+header a{
+  text-decoration: none !important;
+  font-weight: 100 !important;
+}
+#team{
+  margin-bottom: 0px !important;
+}
+#footer{
+padding: 0px;
+}
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none !important;
+  font-size: 25px  !important;
+  color: #f1f1f1 !important;
+  display: block  !important;
+  transition: 0.3s  !important;
+}
+.sidenav a span {
+  font-weight: 100 !important;
+}
+.sidenav a:hover {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none !important;
+  font-size: 25px  !important;
+  color: #f1f1f1 !important;
+  display: block  !important;
+  transition: 0.3s  !important;
+}
+
+.activesm{
+  font-weight: 400;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+.compdisp{
+  display: block;
+}
+#close{
+  color: black;
+  font-size:60px !important;
+  font-weight: 200 !important;
+}
+#open{
+  color: black;
+  font-size:30px !important;
+
+}
+.sidedisp{
+  display: none;
+}
+  .mob{
+ display: none;
+  }
+  @media screen and (max-width:760px){
+    .sidedisp{
+      display: block;
+    }
+    .compdisp{
+      display: none;
+    }
+  }
+
+  @media screen and (max-width:905px){
+  .compsidebar{
+    display: none !important;
+  }
+  .sidedisp{
+    display: block;
+  }
+  }
+  @media screen and (max-width:480px){
+    .sidedisp{
+      display: block;
+    }
+    .compdisp{
+      display: none;
+    }
+    .comp{
+      display: none !important;
+    }
+    .mob{
+      display: block;
+    }
+    header ul{
+      padding-top: 0px;
+      margin: 10px;
+    }
+  }

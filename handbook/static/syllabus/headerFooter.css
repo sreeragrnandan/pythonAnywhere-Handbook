@@ -1,0 +1,340 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,200);
+
+/* @import url(http://weloveiconfonts.com/api/?family=entypo); */
+/* entypo */
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif;
+}
+
+/* responsive */
+@media screen and (min-width: 40em) {
+  .col-group {
+    overflow: hidden;
+  }
+  .col-group > div {
+    float: left;
+    width: 30%;
+  }
+
+}
+
+
+
+
+body{
+  
+  font-family: 'Raleway', sans-serif;
+  font-weight:200;
+  margin: 0;
+  padding: 0;
+}
+
+h1{
+    font-weight:200;
+}
+
+h2{
+    font-weight:200;
+  width:50%;
+}
+
+h3{
+    font-weight:200;
+}
+
+p{
+  font-weight:200;
+  
+}
+/*#a66Ca3*/
+
+::selection {
+	background: #CFA193; /* Safari */
+	}
+::-moz-selection {
+	background: #CFA193; /* Firefox */
+}
+
+header{
+    background-color:#94c2cf;
+    height:60px;
+    position:fixed;
+    width:100%;
+  overflow:hidden;
+  
+}
+
+header .logo{
+  font-size:40px;
+  color:white;
+  padding:5px;
+  padding-left:10px; 
+  float:left;
+  
+  
+}
+
+@-webkit-keyframes Jump {
+    from {-webkit-transform: translate(0, 0px);}
+    50% {-webkit-transform: translate(0, 3px);}
+    to {-webkit-transform: translate(0, 0px);}    
+}
+header .logo:hover {
+  -webkit-animation-name: Jump;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+}
+
+header ul{
+  display:inline;
+/*  background-color:green;*/
+  float:right;
+  padding-top:5px;
+}
+
+header ul li{
+  display:inline;
+/*  background-color:blue;*/
+  color:white;
+  padding:5px; 
+}
+
+header ul a{
+  text-decoration:none;
+  
+  padding:10px 2px 10px 2px;
+  
+-webkit-transition: all 500ms ease;
+-moz-transition: all 500ms ease;
+-ms-transition: all 500ms ease;
+-o-transition: all 500ms ease;
+transition: all 500ms ease;
+  
+}
+
+header ul a:hover{
+  background-color:#88b2be ;
+  border-radius:5px;
+  padding:10px 20px 10px 20px;
+  
+  -webkit-transition: all 500ms ease;
+-moz-transition: all 500ms ease;
+-ms-transition: all 500ms ease;
+-o-transition: all 500ms ease;
+transition: all 500ms ease;
+  
+}
+
+
+
+section{
+  top:0px;right:0px;bottom:0px;left:0px;
+  height: 100%;
+  width: 100%;
+/*  background-color:lime;*/
+  padding-top:60px;
+  border-bottom:1px dotted #D5D5D5;
+  padding-bottom:40px;
+  
+}
+
+section .images{
+  text-align:center;
+
+  
+-webkit-transition: all 500ms ease;
+-moz-transition: all 500ms ease;
+-ms-transition: all 500ms ease;
+-o-transition: all 500ms ease;
+transition: all 500ms ease;
+  
+}
+.images img{
+    width:auto;
+  
+  }
+
+
+.images img:hover{  
+}
+
+
+
+.wrap{
+  max-width:760px;
+  margin:auto;
+  padding-left:5px;
+  padding-right:5px;
+  
+}
+
+
+#large_image{
+  background-image: url('http://wallpaper.pickywallpapers.com/1280x1024/minimal-flying-paper-plane.jpg');
+  background-position:center center ;
+  
+  min-height:400px;
+  width:100%;
+  
+}
+
+#hello{
+
+  padding-top:100px;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+  margin-left:40px;
+  border-bottom:0px dotted #D5D5D5;
+}
+
+#hello h1{
+    font-weight:400;
+}
+
+#hello p{
+  width:50%;
+    font-weight:400;
+}
+
+
+.white{
+  color:white;
+  
+}
+
+
+#skills{
+  clear:both;
+  min-height:500px;
+  
+}
+
+#skills ul{
+  /*background-color:green;*/
+    text-align:left;
+    margin-left:-40px;
+}
+
+#skills li{
+  font-size:80px;
+  padding:20px;
+  list-style:none;
+  /*background-color:red;*/
+  color:#D3D3D3;
+  text-align:center;
+  
+  -webkit-transition: all 500ms ease;
+-moz-transition: all 500ms ease;
+-ms-transition: all 500ms ease;
+-o-transition: all 500ms ease;
+transition: all 500ms ease;
+
+  
+}
+
+#skills li:hover{
+  color:#94c2cf;
+  cursor:pointer;
+  
+  -webkit-transition: all 500ms ease;
+-moz-transition: all 500ms ease;
+-ms-transition: all 500ms ease;
+-o-transition: all 500ms ease;
+transition: all 500ms ease;
+
+  
+}
+
+
+
+
+.col-group > div {
+  padding: 0.5em 0.5em 0;
+}
+
+.me {
+  display: block;
+  margin: 2em auto;
+  margin-bottom: 2em;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+#about ul{
+  /*background-color:green;*/
+    text-align:center;
+    margin-left:-40px;
+}
+
+#about ul li{
+  font-size:50px;
+  list-style:none;
+  /*background-color:red;*/
+  display:inline;
+  color:#cccccc;
+  
+  -webkit-transition: all 500ms ease;
+-moz-transition: all 500ms ease;
+-ms-transition: all 500ms ease;
+-o-transition: all 500ms ease;
+transition: all 500ms ease;
+
+  
+}
+
+#about ul li:hover{
+  color:#94c2cf;
+  cursor:pointer;
+  
+  -webkit-transition: all 500ms ease;
+-moz-transition: all 500ms ease;
+-ms-transition: all 500ms ease;
+-o-transition: all 500ms ease;
+transition: all 500ms ease;
+
+  
+}
+
+
+#footer{
+  background-color:#cccccc ;
+  color:white;
+  text-align:center;
+}
+
+@-webkit-keyframes Jumpy {
+    from {-webkit-transform: translate(0, 0px);}
+    50% {-webkit-transform: translate(0, 10px);}
+    to {-webkit-transform: translate(0, 0px);}    
+}
+
+ 
+#footer #logo_footer{
+  width:38px;
+  height:45px;
+  margin-left:auto;
+  margin-right:auto;
+  border-bottom:1px solid white;
+  
+}
+
+
+#footer a{
+  font-size:20px;
+  color:white;
+  padding:5px;
+  padding-left:3px; 
+  width:30px;
+  margin:auto;
+  float:left;
+  color:white;
+  text-decoration:none;
+   -webkit-animation-name: Jumpy;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+}
+
+
+

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Handbook</title>
+    <link rel="shortcut icon" href="/media/favicon.ico" type="image/x-icon">
+
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'syllabus/styles/style.css' %}">
+    <link rel="stylesheet" href="/media/fontawesome-free-5.8.1-web/css/all.css">
+    <link rel="stylesheet" href="/media/sidebar/sidebar.css">
+    <script src="/media/sidebar/sidebar.js"></script>
+
+
+    <style media="screen,print">
+            #body {
+                max-width:100%;
+                margin:0 auto;
+            }
+            iframe {
+                width:100%;
+                margin:0 0 1em;
+                border:0;
+            }
+            #external-frame {min-height:800px;}
+      </style>
+</head>
+<body>
+            <div id="mySidenav" class="sidenav mobsidebar" style="z-index: 1200">
+                <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
+
+                    <a href="{% url 'contacts:index' %}"><i class="far fa-address-card"></i>&nbsp;Contacts</a>
+                    <a href="{% url 'calender:index' %}"><i class="far fa-calendar-alt"></i>&nbsp;Calender</a>
+                    <a href="{% url 'syllabus:index' %}"><span  style="font-weight: 400;"><i class="fas fa-book"></i>&nbsp;Syllabus</span></a>
+                    <a href="{% url 'comity:index' %}"><i class="fas fa-users"></i>&nbsp;Committees</a>
+                    <a href="{% url 'quickReference:index' %}"><i class="fas fa-qrcode"></i>&nbsp;QuickReference</a>
+                    <a href="{% url 'administration:index' %}"><i class="fas fa-user-shield"></i>&nbsp;Administration</a>
+                    <a href="{% url 'TimeTable:index' %}"><i class="fas fa-table"></i>&nbsp;Time Table</a>
+                    <a href="{% url 'about:index' %}"><i class="fas fa-info-circle"></i>&nbsp;About</a>
+              </div>
+            <header style="z-index: 1526" >
+                <div class="wrap" style="max-width: 1100px;">
+                    <a href="#hello">
+                        <div class="logo" style="padding: 0px">
+              <img src="/media/LOOGO.png" height="55px" width="55px">
+              <!-- <i class="fas fa-book-open"></i> -->
+          </div>
+                    </a>
+                    <ul class="sidedisp">
+                    <span style="font-size:30px;cursor:pointer;transition: 1s;" id="open" onclick="openNav()">&#9776;</span>
+                    <span style="margin-top: -25px;font-size: 60px;cursor:pointer;display: none;transition: 1s;" id="close" onclick="closeNav()">&times;</span>
+
+                    </ul>
+                    <ul class="compdisp  compsidebar">
+                        <a href="{% url 'contacts:index' %}"><li>Contacts</li></a>
+                        <a  href="{% url 'calender:index' %}" ><li>Calender</li></a>
+                        <a href="{% url 'syllabus:index' %}" ><li  style="background-color:#88b2be ;border-radius:5px;padding:10px 20px 10px 20px;"> Syllabus</li></a>
+                        <a href="{% url 'comity:index' %}"><li>Committees</li></a>
+                        <a href="{% url 'quickReference:index' %}"><li>QuickReference</li></a>
+                        <a href="{% url 'administration:index' %}"><li>Administration</li></a>
+                        <a href="{% url 'TimeTable:index' %}"><li>&nbsp;Time Table</li></a>
+                        <a href="{% url 'about:index' %}"><li>&nbsp;About</li></a>
+                    </ul>
+                </div>
+            </header>
+
+
+         <!-- template -->
+    <!-- Team -->
+
+    <div style="padding:0px;overflow:hidden" onclick="closeNav()">
+      <iframe src="https://www.jecc.ac.in/syllabus" frameborder="0"
+      style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:90%;width:100%;position:absolute;left:0px;right:0px;bottom:0px;"
+      id="frame" height="90%" width="100%"></iframe>
+    </div>
+
+    <!-- <div id="body">
+    <iframe id="frame" id="external-frame" src="https://www.jecc.ac.in/administration"></iframe>
+    </div> -->
+
+<!-- template end -->
+
+      </div>
+
+      <!-- <div class="footer">
+          <section id="footer">
+            <div id="logo_footer">
+              <a href="#hello"><div class="logo"><i class="fas fa-book-open"></i></div></a>
+            </div>
+            <p>Digital Handbook<br>Developed by TBI<br>2019</p>
+          </section>
+        </div> -->
+
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+  <script type="text/javascript">
+    function selFunction() {
+      var sellval = document.getElementById("sell").value;
+      var sellval2 = document.getElementById("sell2").value;
+      if (sellval != "" && sellval2 != "None") {
+      var sellval = document.getElementById("sell").value;
+      var sellval2 = document.getElementById("sell2").value;
+       if (sellval2 != "None") {
+         var search_id = sellval+sellval2;
+        //  alert(search_id);
+        searchDiv(search_id,sellval);
+       }
+      // alert(sellval)
+      }
+    }
+  </script>
+  <script>
+    function searchDiv(divId,head) {
+      var x = document.getElementsByClassName("InSearch");
+      for (i = 0; i < x.length; i++) {
+        a = x[i].getElementsByTagName("div")[1];
+        x[i].style.display = "none";
+      }
+      document.getElementById(divId).style.display="block";
+      document.getElementById(head).style.display="block";
+
+    }
+  </script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>TIME TABLE</title>
+
+  <!-- Custom fonts for this template-->
+  <link rel="stylesheet" href="/media/fontawesome-free-5.8.1-web/css/all.css">
+  <link rel="shortcut icon" href="/media/favicon.ico" type="image/x-icon">
+
+  <!-- <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> -->
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="{% static 'TimeTable/sb-admin-2.min.css' %}" rel="stylesheet">
+  <link href="{% static 'TimeTable/style.css' %}" rel="stylesheet">
+      <link rel="stylesheet" href="/media/sidebar/sidebar.css">
+    <script src="/media/sidebar/sidebar.js"></script>
+
+</head>
+<style>
+.sidebar-social {
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar-social ul {
+    margin: 0;
+}
+
+.sidebar-social li {
+    margin: 10px;
+    margin-top:0;
+    margin-bottom: 0;
+	  text-align: center;
+    background-color: #fff;
+    /* border: 1px solid #eee; */
+    display: inline-block;
+    padding:0;
+}
+
+.sidebar-social i {
+  display: block;
+  margin: 0 auto 10px auto;
+	width: 32px;
+    height: 32px;
+    margin: 10px auto 0;
+    line-height: 32px;
+    text-align: center;
+    color: #444444;
+  margin-top:0;
+  padding-top:5px;
+
+}
+.sidebar-social a span{
+  color:black;
+}
+.footer {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding-top: 1rem;
+    }
+    a{
+        text-decoration: none !important;
+    }
+</style>
+<body style="background-color: #f8f9fc">
+  
+    <div id="mySidenav" class="sidenav mobsidebar" style="z-index: 10">
+        <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
+
+            <a href="{% url 'contacts:index' %}"><i class="far fa-address-card"></i>&nbsp;Contacts</a>
+            <a href="{% url 'calender:index' %}"><i class="far fa-calendar-alt"></i>&nbsp;Calender</a>
+            <a href="{% url 'syllabus:index' %}"><i class="fas fa-book"></i>&nbsp;Syllabus</a>
+            <a href="{% url 'comity:index' %}"><i class="fas fa-users"></i>&nbsp;Committees</a>
+            <a href="{% url 'quickReference:index' %}"><i class="fas fa-qrcode"></i>&nbsp;QuickReference</a>
+            <a href="{% url 'administration:index' %}"><i class="fas fa-user-shield"></i>&nbsp;Administration</a>
+            <a href="{% url 'TimeTable:index' %}"><i class="fas fa-table"></i>&nbsp;Time Table</a>
+            <a href="{% url 'about:index' %}"><i class="fas fa-info-circle"></i>&nbsp;About</a>
+      </div>
+    <header style="z-index: 20" >
+        <div class="wrap" style="max-width: 1000px;">
+            <a href="#hello">
+                <div class="logo" style="padding: 0px">
+              <img src="/media/LOOGO.png" height="55px" width="55px">
+              <!-- <i class="fas fa-book-open"></i> -->
+          </div>
+            </a>
+            <ul class="sidedisp">
+            <span style="font-size:30px;cursor:pointer;transition: 1s;color:black" id="open" onclick="openNav()">&#9776;</span>
+            <span style="margin-top: -25px;font-size: 60px;cursor:pointer;display: none;transition: 1s;color:black" id="close" onclick="closeNav()">&times;</span>
+            </ul>
+            <ul class="compdisp  compsidebar">
+                <a href="{% url 'contacts:index' %}"><li>Contacts</li></a>
+                <a  href="{% url 'calender:index' %}" ><li>Calender</li></a>
+                <a href="{% url 'syllabus:index' %}" ><li>Syllabus</li></a>
+                <a href="{% url 'comity:index' %}"><li>Committees</li></a>
+                <a href="{% url 'quickReference:index' %}"><li>QuickReference</li></a>
+                <a href="{% url 'administration:index' %}"><li>Administration</li></a>
+                <a href="{% url 'TimeTable:index' %}"><li style="background-color:#88b2be ;border-radius:5px;padding:10px 20px 10px 20px;">&nbsp;Time Table</li></a>
+                <a href="{% url 'about:index' %}"><li>&nbsp;About</li></a>
+            </ul>
+        </div>
+    </header>
+  <section id="team"style="border-bottom:none;" onclick="closeNav()" class="pb-5">
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+    <!-- Sidebar -->
+    <!-- End of Sidebar -->
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+      <!-- Main Content -->
+      <div id="content">
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Time Table</h1>
+          </div>
+          <div class="row">
+            <div class="clo-md-6">
+          <select class="form-control" onclick="selFunction()" id="sell">
+            <option value="None">Select Branch</option>
+              {% if departments %}
+              {% for department in departments %}
+            <option value="{{ department.department_name }}">{{ department.department_name }}</option>
+            {% endfor %}
+            {% endif %}
+          </select>
+        </div>
+        <div class="clo-md-6" style="margin-left: 20px">
+          <select class="form-control" onchange="selFunction();" id="sell2">
+              <option value="None">Select Sem</option>
+              <option value="S1">S1</option>
+              <option value="S2">S2</option>
+              <option value="S3">S3</option>
+              <option value="S4">S4</option>
+              <option value="S5">S5</option>
+              <option value="S6">S6</option>
+              <option value="S7">S7</option>
+              <option value="S8">S8</option>
+            </select>
+        </div>
+          </div>
+          <!-- Content Row -->
+          {% if departments %}
+          {% for department in departments %}
+           <h1 class="InSearch" id="{{ department.department_name }}">{{ department.department_name }}</h1>
+          <div class="row">
+            <!-- Earnings (Monthly) Card Example -->
+            {% for timeTable in timeTables %}
+              {% if department.id == timeTable.Department_name_id %}
+            <div class="col-xl-3 col-md-6 mb-4 InSearch" id="{{ department.department_name }}{{ timeTable.semester }}">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                         <H5>{{ department.department_name }}  ({{ timeTable.semester }}) </H5>
+                      </div>
+                      <!-- <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div> -->
+                    </div>
+                    <div class="col-auto sidebar-social">
+                      <a href="/media/{{ timeTable.Time_Table_of_Division_A }}">
+                      <span class="fa-stack fa-3x" style="font-size: 25px;height:0">
+                      <i class="far fa-file-pdf fa-stack-2x" style="line-height: 0px;margin-top: -10px;"></i>
+                      <strong class="fa-stack-1x calendar-text" style="font-size: 18px;margin-top: 16px;width: 46px;margin-top: 4px;margin-left: -4px;">{{ timeTable.semester }}A</strong>
+                      </span>
+       </a>
+            {% if timeTable.Time_Table_of_Division_B != "Null" %}
+            <a href="/media/{{ timeTable.Time_Table_of_Division_B }}">
+            <span class="fa-stack fa-3x" style="font-size: 25px;height:0">
+                <i class="far fa-file-pdf fa-stack-2x" style="line-height: 0px;margin-top: -10px;"></i>
+                <strong class="fa-stack-1x calendar-text" style="font-size: 18px;margin-top: 16px;width: 46px;margin-top: 4px;margin-left: -4px;">
+                  {{ timeTable.semester }}B</strong>
+              </span>
+            </a>
+            {% endif %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+          </div>
+          {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="footer">
+    <section id="footer">
+          <div id="logo_footer">
+            <a href="#hello"><div class="logo"><i class="fas fa-book-open"></i></div></a>
+          </div>
+          <p>Digital Handbook<br>Developed by TBI<br>2019</p>
+        </section>
+  </div>
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+</body>
+</html>

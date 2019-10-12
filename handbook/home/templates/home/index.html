@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Digital Handbook of Jyothi Engineering College consist of contact of staff,events">
+  <meta name="author" content="Internship project of SREERAG R NANDAN in JCS jyothi Engineering College">
+  <link rel="stylesheet" type="text/css" media="screen" href="{% static 'home/style.css' %}" />
+  <link rel="shortcut icon" href="/media/favicon.ico" type="image/x-icon">
+  <title>Handbook</title>
+  <!-- Custom fonts for this theme -->
+  <!-- <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+  <!-- Theme CSS -->
+  <link rel="stylesheet" href="/media/fontawesome-free-5.8.1-web/css/all.css">
+
+  <link href="{% static 'home/freelancer.min.css' %}" rel="stylesheet">
+
+</head>
+
+<body id="page-top" style=" background: #eee;">
+
+  <!-- Navigation -->
+
+
+  <!-- Masthead -->
+
+
+  <!-- Portfolio Section -->
+  <section class="page-section portfolio" style="padding-top: 10px" id="portfolio">
+    <div class="container">
+
+      <!-- Portfolio Section Heading -->
+      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Digital Handbook</h2>
+
+      <!-- Icon Divider -->
+      <div class="divider-custom">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <style>
+          @media screen and (max-width: 40em) {
+            .divider-custom-icon img{
+              height: 100px !important;
+              width: 100px !important;
+            }
+
+          }
+          </style>
+          <img src="/media/LOOGO.png" height="150px" width="150px"  alt="">
+
+          <!-- <i class="fas fa-book-open"></i> -->
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+
+      <!-- Portfolio Grid Items -->
+      <div class="row">
+
+        <!-- Portfolio Item 1 -->
+
+        <div class="col-md-6 col-lg-3">
+            <a href="{% url 'contacts:index' %}">
+          <div class="portfolio-item mx-auto">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                Contact
+              </div>
+            </div>
+            <img class="img-fluid" src="{% static 'home/img/portfolio/Contact.png' %}" alt="">
+          </div>
+        </a>
+        </div>
+
+        <!-- Portfolio Item 2 -->
+        <div class="col-md-6 col-lg-3">
+            <a href="{% url 'calender:index' %}">
+          <div class="portfolio-item mx-auto">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                Calender
+              </div>
+            </div>
+            <img class="img-fluid" src="{% static 'home/img/portfolio/calender.png' %}" alt="">
+          </div>
+          </a>
+        </div>
+
+        <!-- Portfolio Item 3 -->
+        <div class="col-md-6 col-lg-3">
+            <a href="{% url 'syllabus:index' %}">
+          <div class="portfolio-item mx-auto">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                Syllabus
+              </div>
+            </div>
+            <img class="img-fluid" src="{% static 'home/img/portfolio/syllabus.png' %}" alt="">
+          </div>
+          </a>
+        </div>
+        <!-- Portfolio Item 4 -->
+        <div class="col-md-6 col-lg-3">
+          <a href="{% url 'TimeTable:index' %}">
+        <div class="portfolio-item mx-auto">
+          <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+            <div class="portfolio-item-caption-content text-center text-white">
+              Time Table
+            </div>
+          </div>
+          <img class="img-fluid" src="{% static 'home/img/portfolio/timeTable.png' %}" alt="">
+        </div>
+        </a>
+      </div>
+
+        <!-- Portfolio Item 4 -->
+        <div class="col-md-6 col-lg-3">
+            <a href="{% url 'comity:index' %}">
+          <div class="portfolio-item mx-auto">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                Committees
+              </div>
+            </div>
+            <img class="img-fluid" src="{% static 'home/img/portfolio/Committees.png' %}" alt="">
+          </div>
+          </a>
+        </div>
+
+        <!-- Portfolio Item 5 -->
+        <div class="col-md-6 col-lg-3">
+            <a href="{% url 'quickReference:index' %}">
+          <div class="portfolio-item mx-auto">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                QuickReference
+              </div>
+            </div>
+            <img class="img-fluid" src="{% static 'home/img/portfolio/QuickReference.png' %}" alt="">
+          </div>
+          </a>
+        </div>
+
+        <!-- Portfolio Item 6 -->
+        <div class="col-md-6 col-lg-3">
+            <a href="{% url 'administration:index' %}">
+          <div class="portfolio-item mx-auto">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                Administration
+              </div>
+            </div>
+            <img class="img-fluid" src="{% static 'home/img/portfolio/Administration.png' %}" alt="">
+          </div>
+          </a>
+        </div>
+
+        <!-- Portfolio Item 6 -->
+        <div class="col-md-6 col-lg-3">
+          <a href="{% url 'about:index' %}">
+        <div class="portfolio-item mx-auto">
+          <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+            <div class="portfolio-item-caption-content text-center text-white">
+              About
+            </div>
+          </div>
+          <img class="img-fluid" src="{% static 'home/img/portfolio/about.jpg' %}" alt="">
+        </div>
+        </a>
+      </div>
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+  </section>
+
+
+
+  <!-- Contact Section -->
+
+  <section id="footer">
+    <div id="logo_footer">
+      <a href="#hello">
+        <div class="entypo-paper-plane logo" aling="center">
+          <i class="fas fa-book-open"></i>
+      </div>
+      </a>
+    </div>
+    <p>Digital Handbook
+      <br>Developed by TBI
+      <br>2019</p>
+  </section>
+
+  <!-- Copyright Section -->
+  <section class="copyright py-4 text-center text-white">
+    <div class="container">
+      <small>Copyright &copy; JCS</small>
+    </div>
+  </section>
+
+  <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+  <div class="scroll-to-top d-lg-none position-fixed ">
+    <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+
+  <!-- Portfolio Modals -->
+
+
+</body>
+
+</html>

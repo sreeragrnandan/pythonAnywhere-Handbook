@@ -1,0 +1,199 @@
+
+@media screen and (min-width: 40em) {
+  .col-group {
+    overflow: hidden;
+  }
+  .col-group > div {
+    float: left;
+    width: 30%;
+  }
+
+}
+
+#header{
+    background-color:#94c2cf;
+    height:60px;
+    position:fixed;
+    width:100%;
+  overflow:hidden;
+  
+}
+
+#header .logo{
+  font-size:40px;
+  color:white;
+  padding:5px;
+  padding-left:10px; 
+  float:left;
+  
+  
+}
+.wrap{
+  max-width:760px;
+  margin:auto;
+  padding-left:5px;
+  padding-right:5px;
+  
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+#wrap {
+  min-height: 100%;
+}
+
+#main {
+
+  padding-bottom: 180px;
+  /* must be same height as the footer */
+}
+
+#footer {
+  position: relative;
+  margin-top: -180px;
+  /* negative value of footer height */
+  height: 180px;
+  clear: both;
+  background-color: red;
+}
+
+
+/* Opera Fix thanks to Maleika (Kohoutec) */
+
+body:before {
+  content: "";
+  height: 100%;
+  float: left;
+  width: 0;
+  margin-top: -32767px;
+  /* thank you Erik J - negate effect of float*/
+}
+
+@-webkit-keyframes Jump {
+    from {-webkit-transform: translate(0, 0px);}
+    50% {-webkit-transform: translate(0, 3px);}
+    to {-webkit-transform: translate(0, 0px);}    
+}
+#header .logo:hover {
+  -webkit-animation-name: Jump;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+}
+
+#header ul{
+  /* display:inline; */
+/*  background-color:green;*/
+  float:right;
+  padding-top:5px;
+}
+
+#header ul li{
+  display:inline;
+/*  background-color:blue;*/
+  color:white;
+  padding:5px; 
+}
+
+#header ul a{
+  text-decoration:none;
+  
+  padding:10px 2px 10px 2px;
+  
+-webkit-transition: all 500ms ease;
+-moz-transition: all 500ms ease;
+-ms-transition: all 500ms ease;
+-o-transition: all 500ms ease;
+transition: all 500ms ease;
+  
+}
+
+#header ul a:hover{
+  background-color:#88b2be ;
+  border-radius:5px;
+  padding:10px 20px 10px 20px;
+  
+  -webkit-transition: all 500ms ease;
+-moz-transition: all 500ms ease;
+-ms-transition: all 500ms ease;
+-o-transition: all 500ms ease;
+transition: all 500ms ease;
+  
+}
+
+
+
+
+#hello{
+
+  padding-top:100px;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+  margin-left:40px;
+  border-bottom:0px dotted #D5D5D5;
+}
+
+#hello h1{
+    font-weight:400;
+}
+
+#hello p{
+  width:50%;
+    font-weight:400;
+}
+
+
+.white{
+  color:white;
+  
+}
+
+
+
+#footer{
+  background-color:#cccccc ;
+  color:white;
+  text-align:center;
+}
+
+@-webkit-keyframes Jumpy {
+    from {-webkit-transform: translate(0, 0px);}
+    50% {-webkit-transform: translate(0, 10px);}
+    to {-webkit-transform: translate(0, 0px);}    
+}
+
+ 
+#footer #logo_footer{
+  width:38px;
+  height:45px;
+  margin-left:auto;
+  margin-right:auto;
+  border-bottom:1px solid white;
+  
+}
+
+
+#footer a{
+  font-size:20px;
+  color:white;
+  padding:5px;
+  padding-left:3px; 
+  width:30px;
+  margin:auto;
+  float:left;
+  color:white;
+  text-decoration:none;
+   -webkit-animation-name: Jumpy;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+}
+
+
+

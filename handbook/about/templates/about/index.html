@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>About</title>
+
+  <link rel="shortcut icon" href="/media/favicon.ico" type="image/x-icon">
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'about/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link rel="stylesheet" href="/media/fontawesome-free-5.8.1-web/css/all.css">
+
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" href="{% static 'about/style.css' %}">
+  <link href="{% static 'about/agency.min.css' %}" rel="stylesheet">
+
+    <link rel="stylesheet" href="/media/sidebar/sidebar.css">
+    <script src="/media/sidebar/sidebar.js"></script>
+
+</head>
+
+<body id="page-top">
+  <style>
+  .compdisp li{
+    font-weight: 300 !important;
+  }
+  #team{
+  margin-bottom: 60px !important;
+}
+  </style>
+  <div id="mySidenav" class="sidenav" style="z-index: 1200">
+    <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
+
+        <a href="{% url 'contacts:index' %}"><i class="far fa-address-card"></i>&nbsp;Contacts</a>
+        <a href="{% url 'calender:index' %}"><i class="far fa-calendar-alt"></i>&nbsp;Calender</a>
+        <a href="{% url 'syllabus:index' %}"><i class="fas fa-book"></i>&nbsp;Syllabus</a>
+        <a href="{% url 'comity:index' %}"><i class="fas fa-users"></i>&nbsp;Committees</a>
+        <a href="{% url 'quickReference:index' %}"  style="font-size: 24px"><i class="fas fa-qrcode"></i>&nbsp;QuickReference</a>
+        <a href="{% url 'administration:index' %}"  style="font-size: 23px;"><i class="fas fa-user-shield"></i>&nbsp;Administration</a>
+      <a href="{% url 'TimeTable:index' %}"><i class="fas fa-table"></i>&nbsp;Time Table</a>
+      <a href="{% url 'about:index' %}"><i class="fas fa-info-circle"></i>&nbsp;About</a>
+
+  </div>
+  <!-- Navigation -->
+  <div id="header" style="z-index: 1589">
+    <div class="wrap" style="max-width: 1000px;">
+      <a href="#hello">
+          <div class="logo" style="padding: 0px">
+              <img src="/media/LOOGO.png" height="55px" width="55px">
+              <!-- <i class="fas fa-book-open"></i> -->
+          </div>
+      </a>
+      <ul class="sidedisp mob">
+      <span style="font-size:30px;cursor:pointer;transition: 1s;" id="open" onclick="openNav()">&#9776;</span>
+      <span style="margin-top: -25px;font-size: 60px;cursor:pointer;display: none;transition: 1s;" id="close" onclick="closeNav()">&times;</span>
+
+      </ul>
+      <ul class="compdisp compsidebar">
+      <a href="{% url 'contacts:index' %}"><li>Contacts</li></a>
+      <a  href="{% url 'calender:index' %}" ><li>Calender</li></a>
+      <a href="{% url 'syllabus:index' %}" ><li>Syllabus</li></a>
+      <a href="{% url 'comity:index' %}"><li>Committees</li></a>
+      <a href="{% url 'quickReference:index' %}"><li>QuickReference</li></a>
+      <a href="{% url 'administration:index' %}"><li>Administration</li></a>
+      <a href="{% url 'TimeTable:index' %}"><li>Time Table</li></a>
+      <a href="{% url 'about:index' %}"><li  style="background-color:#88b2be ;border-radius:5px;padding:10px 20px 10px 20px;">About</li></a>
+    </ul>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <div onclick="closeNav()">
+  <header class="masthead">
+    <div class="container">
+      <div class="intro-text">
+        <div class="intro-lead-in">Welcome To Jyothi Digital Handbook!</div>
+        <div class="intro-heading text-uppercase">It's Nice To Meet You</div>
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#about">Tell Me More</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Services -->
+
+
+  <!-- Portfolio Grid -->
+
+
+  <!-- About -->
+  <section class="page-section" id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">About</h2>
+          <h3 class="section-subheading text-muted">History of Digital Handbook</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <ul class="timeline">
+            <li>
+              <div class="timeline-image">
+                <img class="rounded-circle img-fluid" src="{% static 'about/img/about/growth1.jpg' %}" alt="">
+              </div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4>November 2018</h4>
+                  <h4 class="subheading">Internship started at JCS</h4>
+                </div>
+                <div class="timeline-body">
+                  <p class="text-muted">
+                    Fr. Roy Joseph Vadakkan proposed an idea of internship at Jyothi Consultancy Services (JCS)
+                    monitored by Vinod K System Administrator, senior software engineer of JCS.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li class="timeline-inverted">
+              <div class="timeline-image">
+                <img class="rounded-circle img-fluid" src="{% static 'about/img/about/growth2.jpg' %}" alt="">
+              </div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4>April 2019</h4>
+                  <h4 class="subheading"> Idea for a Digital Handbook</h4>
+                </div>
+                <div class="timeline-body">
+                  <p class="text-muted">
+                      The idea for digital handbook was presented by SREERAG R NANDAN( Junior software  Intern) under the voluntary guidance
+                      of SHIJU PAUL(Assistant Professor JECC).
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="timeline-image">
+                <img class="rounded-circle img-fluid" src="{% static 'about/img/about/growth3.jpg' %}" alt="">
+              </div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4>August 2019</h4>
+                  <h4 class="subheading">Submitted to management</h4>
+                </div>
+                <div class="timeline-body">
+                  <p class="text-muted">
+                    Submitted the Digital handbook for reviewing and testing.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li class="timeline-inverted">
+              <div class="timeline-image">
+                <img class="rounded-circle img-fluid" src="{% static 'about/img/about/growth4.jpg' %}" alt="">
+              </div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4>Sectember 2019</h4>
+                  <h4 class="subheading">Implimented</h4>
+                </div>
+                <div class="timeline-body">
+                  <p class="text-muted">
+                      Implemented after reviewing and made available to all
+                    </p>
+                </div>
+              </div>
+            </li>
+            <li class="timeline-inverted">
+              <div class="timeline-image">
+                <h4>Be Part
+                  <br>Of Our
+                  <br>Story!</h4>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="bg-light page-section" style="margin-bottom: 128px;" id="team">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
+          <h3 class="section-subheading text-muted"></h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="team-member">
+            <img class="mx-auto rounded-circle" src="{% static 'about/img/team/roy.jpg' %}" alt="">
+            <h4 style="min-height: 62px;">Fr.ROY JOSEPH VADAKKAN</h4>
+            <p class="text-muted">Campus Head(Secretary and Asst. Manager), Mentor</p>
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a href="https://twitter.com/roy_godveda">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.facebook.com/royjoseph.vadakkan">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.linkedin.com/in/roy-joseph-vadakkan-3a4a2249/?originalSubdomain=in">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="team-member">
+            <img class="mx-auto rounded-circle" src="{% static 'about/img/team/vinu.jpg' %}" alt="">
+            <h4 style="min-height: 62px;">VINOD K</h4>
+            <p class="text-muted">System Administrator & Senior Software Engineer, Project  Guide</p>
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item" id="vk">
+                <a href="#vk">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.facebook.com/vinod.vinu.779">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.linkedin.com/in/vinod-k-9898a039/">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="team-member">
+            <img class="mx-auto rounded-circle" src="{% static 'about/img/team/sree.jpg' %}" alt="">
+            <h4 style="min-height: 62px;">SREERAG R NANDAN</h4>
+            <p class="text-muted">CSE (2017-2021) <br> Developer</p>
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a href="https://twitter.com/NandanSreerag">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.facebook.com/sreerag.r.nandan">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://in.linkedin.com/in/sreerag-r-nandan-302a66160">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="team-member">
+              <img class="mx-auto rounded-circle" src="{% static 'about/img/team/shaiju.jpg' %}" alt="">
+              <h4 style="min-height: 62px;">SHAIJU PAUL</h4>
+              <p class="text-muted">Assistant Professor CSE <br> Project  Guide</p>
+              <ul class="list-inline social-buttons">
+                <li class="list-inline-item">
+                  <a href="https://twitter.com/shaiju_83">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item" id="sp">
+                  <a href="#sp">
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="https://scholar.google.com/citations?user=xn7gorIAAAAJ&hl=en">
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <!-- <p class="large text-muted">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque,
+            laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.
+          </p> -->
+        </div>
+      </div>
+    </div>
+  </section>
+  </div>
+  <section id="footer">
+    <div id="logo_footer">
+      <a href="#hello"><div class="logo"><i class="fas fa-book-open"></i></div></a>
+    </div>
+    <p>Digital Handbook<br>Developed by TBI<br>2019</p>
+  </section>
+
+  <!-- Clients -->
+
+
+  <!-- Contact -->
+
+
+  <!-- Footer -->
+
+
+
+</body>
+
+</html>

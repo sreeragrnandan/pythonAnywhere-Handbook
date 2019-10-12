@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <link rel="shortcut icon" href="/media/favicon.ico" type="image/x-icon">
+
+  <title>Handbook</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'quickReference/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="/media/fontawesome-free-5.8.1-web/css/all.css">
+
+
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
+  <!-- <link href="{% static 'quickReference/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet"> -->
+  <link rel="stylesheet" href="Headstyle.css">
+  <!-- Custom styles for this template -->
+  <link href="{% static 'quickReference/css/resume.min.css' %}" rel="stylesheet">
+  <link href="{% static 'quickReference/css/headerFooter.css' %}" rel="stylesheet">
+  <script src="/media/sidebar/sidebar.js"></script>
+  <link rel="stylesheet" href="/media/sidebar/sidebar.css">
+
+  <style>
+      @media screen and (min-width:1300px){
+        .wrap{
+          margin-left: 194px;
+        }
+      }
+      @media (max-width: 992px) {
+      .fixed-top{
+        top:60px !important;
+      }
+      }
+      @media (max-width: 720px) {
+
+    h1{
+      font-size: 3rem;
+    }
+    h2{
+      font-size: 2.5rem;
+    }
+  }
+  </style>
+<style>
+    a{
+        text-decoration: none !important;
+    }
+    </style>
+    <style>
+@media screen and (max-width: 450px) {
+  h1{
+    line-height: 3.4rem !important;
+  }
+}
+</style>
+
+</head>
+
+<body id="page-top">
+    <div id="mySidenav" class="sidenav mobsidebar" style="z-index: 1200">
+        <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
+
+            <a href="{% url 'contacts:index' %}"><i class="far fa-address-card"></i>&nbsp;Contacts</a>
+            <a href="{% url 'calender:index' %}"><i class="far fa-calendar-alt"></i>&nbsp;Calender</a>
+            <a href="{% url 'syllabus:index' %}"><i class="fas fa-book"></i>&nbsp;Syllabus</a>
+            <a href="{% url 'comity:index' %}"><i class="fas fa-users"></i>&nbsp;Committees</a>
+            <a href="{% url 'quickReference:index' %}"><i class="fas fa-qrcode"></i>&nbsp;QuickReference</a>
+            <a href="{% url 'administration:index' %}"><i class="fas fa-user-shield"></i>&nbsp;Administration</a>
+            <a href="{% url 'TimeTable:index' %}"><i class="fas fa-table"></i>&nbsp;Time Table</a>
+            <a href="{% url 'about:index' %}"><i class="fas fa-info-circle"></i>&nbsp;About</a>
+      </div>
+    <header style="z-index: 1526;top: 0" >
+        <div class="wrap" style="max-width: 1000px;">
+            <a href="#hello">
+               <div class="logo" style="padding: 0px">
+              <img src="/media/LOOGO.png" height="55px" width="55px">
+              <!-- <i class="fas fa-book-open"></i> -->
+          </div>
+            </a>
+            <ul class="sidedisp">
+            <span style="font-size:30px;cursor:pointer;transition: 1s;color: black;" id="open" onclick="openNav()">&#9776;</span>
+            <span style="margin-top: -25px;font-size: 60px;cursor:pointer;display: none;transition: 1s;color: black" id="close" onclick="closeNav()">&times;</span>
+
+            </ul>
+            <ul class="compdisp  compsidebar">
+                <a href="{% url 'contacts:index' %}"><li>Contacts</li></a>
+                <a  href="{% url 'calender:index' %}" ><li>Calender</li></a>
+                <a href="{% url 'syllabus:index' %}" ><li>Syllabus</li></a>
+                <a href="{% url 'comity:index' %}"><li>Committees</li></a>
+                <a href="{% url 'quickReference:index' %}"><li style="background-color:#88b2be ;border-radius:5px;padding:10px 20px 10px 20px;">QuickReference</li></a>
+                <a href="{% url 'administration:index' %}"><li>Administration</li></a>
+                <a href="{% url 'TimeTable:index' %}"><li >&nbsp;Time Table</li></a>
+                <a href="{% url 'about:index' %}"><li>&nbsp;About</li></a>
+            </ul>
+        </div>
+    </header>
+
+<div onclick="closeNav()">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #1a252f;" id="sideNav">
+    <a class="navbar-brand js-scroll-trigger" href="#page-top">
+      <span class="d-block d-lg-none">Quick Reference</span>
+      <span class="d-none d-lg-block">
+        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{% static 'quickReference/img/jyo.png' %}" alt="">
+      </span>
+    </a>
+    <button class="navbar-toggler" type="button" onclick="changeClass(this)" id="1" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-chevron-down" id="down" style="transition: 0.4s"></i>
+        <i class="fas fa-chevron-up" id="up" style="font-size:0px;transition: 0.4s"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#JyothiAnthem">Jyothi Anthem</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#generals">General Information to Students</a>0
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#interests">Interests</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#awards">Awards</a>
+        </li> -->
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container-fluid p-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="about">
+      <div class="w-100" style="margin-top:30px">
+        <h1 class="mb-0">Jyothi
+          <span style="color:  #007bff;">Engineering College</span>
+        </h1>
+        <div class="subheading mb-5">Jyothi Engineering College is a Center of Excellence in Science & Technology founded by the Catholic Archdiocese of Thrissur situated in Cheruthuruthy, Thrissur.
+        </div>
+        <div class="lead mb-5">
+          Vision :
+            Creating eminent and ethical leaders through quality professional education with emphasis on holistic excellence. <br>
+            Mission: <br>
+            <ul>
+
+              <li>
+              To emerge as an institution par excellence of global standards by imparting quality engineering and other professional programmes with state-of- the-art facilities.
+            </li>
+             <li>
+             To equip the students with appropriate skills for a meaningful career in the global scenario.
+            </li>
+            <li>
+              To inculcate ethical values among students and ignite their passion for holistic excellence through social initiatives.
+            </li>
+            <li>
+            To participate in the development of society through technology incubation, entrepreneurship and industry interaction. <br>
+            </li>
+            </ul>
+            Moto : Creating Technology Leaders of Tomorrow <br>
+        </div>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/school/jyothi-engineering-college-cheruthuruthy/?originalSubdomain=in">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://www.instagram.com/jyothiengineeringcollege/">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://twitter.com/jecctcr">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://www.facebook.com/jecc.ac.in/">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://jecc.ac.in/campusbook/">
+            <i class="fas fa-book"></i>
+          </a>
+          <a href="https://jecc.ac.in/">
+            <i class="fas fa-home"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <hr class="m-0">
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="JyothiAnthem">
+      <div class="w-100">
+        <h2 class="mb-5">Jyothi Anthem</h2>
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="resume-content">
+
+      “Never fading ever flowing waves made in love in the heart <br>
+        stirring through the storm,<br>
+        Jyothiyans lead the way to the shining light within the heart<br>
+        We shall hold our hands together rise and shine,<br>
+        To light the dreams of truth and love<br>
+        Khushi bare is palmein,<br>
+        sama judhakar chalthe hum<br>
+        Kabhi Koina rokhe,<br>
+        Kshama jalakar chalthe hum Kabhi na choote,<br>
+        yeh risthey sargam<br>
+        dhilke Kabhi natoote,<br>
+        yeh lamhe yaari palkey Kabhi na chode,<br>
+        yeh sapne khwaish karke<br>
+        Jyothi ek nayi ehsaski barish pyaari hey,<br>
+        Roote jo sapne, woh milthe joyothimein<br>
+        Yaaro hum ab gaaye miljulke ek dhun mein. Hum chale.....<br>
+        Asathoma sadgamaya Thamasoma jyothirgamaya<br>
+        Mruthyorma, Amritham gamaya”
+          </div>
+          <div class="resume-date text-md-right">
+
+          <iframe id="screen"  width="100%" height="100%"  src="https://www.youtube-nocookie.com/embed/e4HqvF4C32I"
+          frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="experience">
+      <div class="w-100">
+        <h2 class="mb-5">Jyothi Anthem</h2>
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="resume-content">
+            <h3 class="mb-0">Senior Web Developer</h3>
+            <div class="subheading mb-3">Intelitec Solutions</div>
+            <p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.</p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">March 2013 - Present</span>
+          </div>
+        </div>
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="resume-content">
+            <h3 class="mb-0">Web Developer</h3>
+            <div class="subheading mb-3">Intelitec Solutions</div>
+            <p>Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.</p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">December 2011 - March 2013</span>
+          </div>
+        </div>
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="resume-content">
+            <h3 class="mb-0">Junior Web Designer</h3>
+            <div class="subheading mb-3">Shout! Media Productions</div>
+            <p>Podcasting operational change management inside of workflows to establish a framework. Taking seamless key performance indicators offline to maximise the long tail. Keeping your eye on the ball while performing a deep dive on the start-up mentality to derive convergence on cross-platform integration.</p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">July 2010 - December 2011</span>
+          </div>
+        </div>
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
+          <div class="resume-content">
+            <h3 class="mb-0">Web Design Intern</h3>
+            <div class="subheading mb-3">Shout! Media Productions</div>
+            <p>Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.</p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">September 2008 - June 2010</span>
+          </div>
+        </div>
+
+      </div>
+
+    </section> -->
+
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="generals" style="margin-bottom: 50px;">
+      <div class="w-100">
+        <h2 class="mb-5">General Information to Students</h2>
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="resume-content">
+            <h3 class="mb-0">Dress Code</h3>
+            <p> Jyothi has prescribed uniforms and ID cards both for boys and girls.
+                All students should wear them whenever they come to the campus to
+                attend class or for any other purpose. Uniforms are supplied through
+                the college office. Wearing coats over the uniforms while working in
+                the workshops is compulsory. T-shirts, Jeans and slippers are not
+                allowed. Boys should wear black full shoes and girls black half shoes.</p>
+          </div>
+        </div>
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="resume-content" style="margin: 50px">
+            <h3 class="mb-0">Discipline, Conduct and Behavior!</h3>
+            <p> <ol>
+                <li>All students are expected to wear the college uniform in the campus. </li>
+                <li>The behavior of the students, comment on hairstyle, shaved face,
+                 both within and outside the college<br>
+                 premises should be decent and befitting to a professional
+                 institution.<br></li>
+                <li> The students shall move silently when proceeding from one class
+                 to another so that classes at work are not disturbed.</li>
+                <li>No student shall leave the class without the permission of the
+                 concerned teacher.</li>
+                <li>Students are prohibited from organizing or attending meetings in
+                 the college, distributing notices and collecting money for any
+                 purpose without the permission of the Principal. </li>
+                 <li>Any student:<br>
+                 - who is persistently insubordinate<br>
+                 - who is habitually irregular in attendance or inattentive to his
+                 work in the class<br>
+                 - who is repeatedly or willfully mischievous or obscene in word
+                 or deed<br>
+                 - who involved in cyber crimes or bullying against peers, teachers
+                 or the management<br>
+                 - who is guilty of fraud or malpractice at examinations<br>
+                 - who indulges in movements which lead to communal ill
+                 feelings or enimity <br>
+                 - who indulges in ragging junior students
+                 Will be punished according to the decision of the disciplinary committee. <br></li>
+                <li>Students must work quietly while in the library or the computer
+                   centre or spend time in such a way as not to cause any interference
+                   with the work of others. <br></li>
+                  <li>Scribbling or etching on drawing boards and desks and writing
+                   on the wall are strictly prohibited. <br></li>
+                  <li>Students are prohibited from shifting furniture or projection
+                   facilities provided by the college. <br></li>
+                  <li>Students must not leave their vehicles in the college porch under
+                   any circumstance. <br></li>
+                   <li>No student, staff or outsider is permitted to enter the class room
+                   while classes are going on without the permission of the concerned
+                   teacher. <br></li>
+                 </ol>
+            </p>
+          </div>
+        </div>
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="resume-content">
+            <h3 class="mb-0">Attendance and Leave Regulations</h3>
+            <div class="subheading mb-3"> Student are expected to attend all classes without fail. If, for
+                unavoidable reasons, leave of absence is required, permission from
+                the competent authority should be sought as given below.</div>
+            <p>
+                <ol>
+                    <li> Application for ordinary leave should be submitted to the Group Advisor
+                    concerned, who is competent to sanction leave up to maximum of
+                    three days at a time. For periods beyond three days at a time, the Heads
+                    of Departments will be the sanctioning authority. Applications for ordinary
+                    leave will not be considered under any circumstances, if
+                    submitted 2 days after the date of return from leave. <br></li>
+                    <li>Students may apply to the heads of departments through the group
+                    advisor for leave falling on medical grounds, within 3 working days after
+                    returning from leave. A Medical certificate should invariably be attached
+                    with the application. In the event of a student being short of
+                    attendance at the end of a semester, condonation of shortage of
+                    attendance will be recommended on this basis. <br></li>
+                    <li>Students are eligible for duty leave, if they perform a duty for the
+                    college. Duty leave can be recommended by faculty members who are
+                    authorized to do so.
+                    Duty leave application should be submitted to the Vice Principal
+                    before the duty is performed. The records of duty leave
+                    sanctioned should be shown to the respective staff members and be
+                    entered in the attendance register. This must be done before the end of
+                    the semester. The respective group advisor must also be informed about
+                    the duty leave granted before the end of the semester.
+                    Duty leave is limited to a maximum of 10% of the number of working
+                    days in a semester. Students who do not satisfy the attendance requirements
+                    as per university regulations will not be permitted to
+                    appear for the University Examinations.</li>
+                  </ol>
+            </p>
+          </div>
+        </div>
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
+          <div class="resume-content">
+            <!-- <h3 class="mb-0">Web Design Intern</h3> -->
+            <div class="subheading mb-3">Shout! Media Productions</div>
+            <!-- <p>Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.</p> -->
+          </div>
+          <div class="resume-date text-md-right">
+            <!-- <span class="text-primary">September 2008 - June 2010</span> -->
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <hr class="m-0">
+
+    <!-- <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="skills">
+      <div class="w-100">
+        <h2 class="mb-5">Skills</h2>
+
+        <div class="subheading mb-3">Programming Languages &amp; Tools</div>
+        <ul class="list-inline dev-icons">
+          <li class="list-inline-item">
+            <i class="fab fa-html5"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="fab fa-css3-alt"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="fab fa-js-square"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="fab fa-angular"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="fab fa-react"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="fab fa-node-js"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="fab fa-sass"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="fab fa-less"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="fab fa-wordpress"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="fab fa-gulp"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="fab fa-grunt"></i>
+          </li>
+          <li class="list-inline-item">
+            <i class="fab fa-npm"></i>
+          </li>
+        </ul>
+
+        <div class="subheading mb-3">Workflow</div>
+        <ul class="fa-ul mb-0">
+          <li>
+            <i class="fa-li fa fa-check"></i>
+            Mobile-First, Responsive Design</li>
+          <li>
+            <i class="fa-li fa fa-check"></i>
+            Cross Browser Testing &amp; Debugging</li>
+          <li>
+            <i class="fa-li fa fa-check"></i>
+            Cross Functional Teams</li>
+          <li>
+            <i class="fa-li fa fa-check"></i>
+            Agile Development &amp; Scrum</li>
+        </ul>
+      </div>
+    </section> -->
+
+    <hr class="m-0">
+
+    <!-- <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="interests">
+      <div class="w-100">
+        <h2 class="mb-5">Interests</h2>
+        <p>Apart from being a web developer, I enjoy most of my time being outdoors. In the winter, I am an avid skier and novice ice climber. During the warmer months here in Colorado, I enjoy mountain biking, free climbing, and kayaking.</p>
+        <p class="mb-0">When forced indoors, I follow a number of sci-fi and fantasy genre movies and television shows, I am an aspiring chef, and I spend a large amount of my free time exploring the latest technology advancements in the front-end web development world.</p>
+      </div>
+    </section> -->
+
+    <hr class="m-0">
+
+    <!-- <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="awards"> -->
+      <!-- <div class="w-100">
+        <h2 class="mb-5">Awards &amp; Certifications</h2>
+        <ul class="fa-ul mb-0">
+          <li>
+            <i class="fa-li fa fa-trophy text-warning"></i>
+            Google Analytics Certified Developer</li>
+          <li>
+            <i class="fa-li fa fa-trophy text-warning"></i>
+            Mobile Web Specialist - Google Certification</li>
+          <li>
+            <i class="fa-li fa fa-trophy text-warning"></i>
+            1<sup>st</sup>
+            Place - University of Colorado Boulder - Emerging Tech Competition 2009</li>
+          <li>
+            <i class="fa-li fa fa-trophy text-warning"></i>
+            1<sup>st</sup>
+            Place - University of Colorado Boulder - Adobe Creative Jam 2008 (UI Design Category)</li>
+          <li>
+            <i class="fa-li fa fa-trophy text-warning"></i>
+            2<sup>nd</sup>
+            Place - University of Colorado Boulder - Emerging Tech Competition 2008</li>
+          <li>
+            <i class="fa-li fa fa-trophy text-warning"></i>
+            1<sup>st</sup>
+            Place - James Buchanan High School - Hackathon 2006</li>
+          <li>
+            <i class="fa-li fa fa-trophy text-warning"></i>
+            3<sup>rd</sup>
+            Place - James Buchanan High School - Hackathon 2005</li>
+        </ul>
+      </div> -->
+    <!-- </section> -->
+
+  </div>
+  <section id="footer">
+    <div id="logo_footer">
+      <a href="#hello">
+        <div class="entypo-paper-plane logo" aling="center">
+          <i class="fas fa-book-open"></i>
+      </div>
+      </a>
+    </div>
+    <p>Digital Handbook
+      <br>Developed by TBI
+      <br>2019</p>
+  </section>
+</div>
+<script>
+function changeClass(obj) {
+  var cls;
+  cls = obj.id;
+  if (obj.id == "1") {
+  document.getElementById("down").style.fontSize="0px";
+  document.getElementById("up").style.fontSize="20px";
+  document.getElementById(cls).id="2";
+  } else {
+
+  document.getElementById("up").style.fontSize="0px";
+  document.getElementById("down").style.fontSize="20px";
+  document.getElementById(cls).id="1";
+  }
+}
+</script>
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'quickReference/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'quickReference/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="{% static 'quickReference/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="{% static 'quickReference/js/resume.min.js' %}"></script>
+
+</body>
+
+</html>

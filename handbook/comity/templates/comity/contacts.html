@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'contacts/styles.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Contact</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <header>
+
+    </header>
+    <!-- template -->
+    <!-- Team -->
+<section id="team" class="pb-5">
+        <div class="container otherPageHeader" bgima>
+            <h5 class="section-title h1">Welcome to Contact</h5>
+            <br>
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Contacts..">
+            <ul id="myUL">
+            {% if contact %}
+            <div align="center">
+            <H1>Administration</H1><br>
+            </div>
+            <div class="row">
+                {% for con in contact %}
+                <!-- Team member -->
+                {% if con.Department == "Administration" %}
+               <li name="MyLi"> <div class="col-xs-12 col-sm-6 col-md-4" style="float: left;margin: 10px;max-width: 15rem;min-width: 15rem;">
+                    <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                        <div class="mainflip">
+                            <div class="frontside">
+                                <div class="card">
+                                    <div class="card-body text-center" style="height: 22rem">
+                                        <p><img class=" img-fluid" src="http://www.jecc.ac.in/uploads/staffs/{{con.StaffID}}.jpg" alt="{{CON.Name}}"></p>
+                                       <h4 class="card-title">{{ con.Name }}</h4>
+                                        <p class="card-text">{{con.Designation}} <br> {{con.Department}} </p>
+                                        <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="backside" style="max-width: 15rem;min-width: 15rem;">
+                                <div class="card">
+                                    <div class="card-body text-center mt-4">
+                                        <h4 class="card-title">{{ con.Name }}</h4>
+                                        <p class="card-text">Qualification<br>{{con.Qualification}}</p>
+                                        <div class="list-inline">
+                                            <div class="list-inline-item">
+                                                <i class="far fa-envelope"></i>&nbsp;
+                                                <a class="social-icon text-xs-center" target="_blank" href="mailto:{{ con.Email }}">
+                                                    {{ con.Email }}
+                                                </a>
+                                            </div>
+                                            <br>
+                                            <div class="list-inline-item">
+                                                    <i class="fas fa-phone-volume"></i> &nbsp;
+                                                <a class="social-icon text-xs-center" target="_blank" href="tel:{{con.Phone_Number}}">
+                                                    {{ con.Phone_Number }}
+                                                </a>
+                                            </div>
+                                            <br> <br>
+                                            <div class="list-inline-item">
+                                                    <i class="far fa-square"></i>
+                                            </div>
+                                            <div class="list-inline-item">
+                                                    <i class="far fa-square"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+                <!-- ./Team member -->
+                {% endif %}
+                {% endfor %}
+            </div>
+            <!-- CSE DEPARTMENT -->
+
+            <div align="center">
+                    <H1>CSE</H1><br>
+                    </div>
+                    <div class="row">
+                        {% for con in contact %}
+                        <!-- Team member -->
+                        {% if con.Department == "CSE" %}
+                       <li name="MyLi"> <div class="col-xs-12 col-sm-6 col-md-4" style="float: left;margin: 10px;max-width: 15rem;min-width: 15rem;">
+                            <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                                <div class="mainflip">
+                                    <div class="frontside">
+                                        <div class="card">
+                                            <div class="card-body text-center">
+                                                <p><img class=" img-fluid" src="http://www.jecc.ac.in/uploads/staffs/{{con.StaffID}}.jpg" alt="{{CON.Name}}"></p>
+                                               <h4 class="card-title">{{ con.Name }}</h4>
+                                                <p class="card-text">{{con.Designation}} <br> {{con.Department}} </p>
+                                                <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="backside" style="max-width: 15rem;min-width: 15rem;">
+                                        <div class="card">
+                                            <div class="card-body text-center mt-4">
+                                                <h4 class="card-title">{{ con.Name }}</h4>
+                                                <p class="card-text">Qualification<br>{{con.Qualification}}</p>
+                                                <div class="list-inline" style="width: 100%">
+                                                    <div class="list-inline-item">
+                                                        <i class="far fa-envelope"></i>&nbsp;
+                                                        <a class="social-icon text-xs-center" target="_blank" href="mailto:{{ con.Email }}">
+                                                            {{ con.Email }}
+                                                        </a>
+                                                    </div>
+                                                    <br>
+                                                    <div class="list-inline-item">
+                                                            <i class="fas fa-phone-volume"></i> &nbsp;
+                                                        <a class="social-icon text-xs-center" target="_blank" href="tel:{{con.Phone_Number}}">
+                                                            {{ con.Phone_Number }}
+                                                        </a>
+                                                    </div>
+                                                    <br> <br>
+                                                    <div class="list-inline-item">
+                                                            <i class="far fa-square"></i>
+                                                    </div>
+                                                    <div class="list-inline-item">
+                                                            <i class="far fa-square"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                        <!-- ./Team member -->
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+
+            <!-- CSE DEPARTMENT -->
+            <!-- CIVIL DEPARTMENT-->
+
+            <div align="center">
+                    <H1>CIVIL</H1><br>
+                    </div>
+                    <div class="row">
+                        {% for con in contact %}
+                        <!-- Team member -->
+                        {% if con.Department == "CIVIL" %}
+                       <li name="MyLi"> <div class="col-xs-12 col-sm-6 col-md-4" style="float: left;margin: 10px;max-width: 15rem;min-width: 15rem;">
+                            <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                                <div class="mainflip">
+                                    <div class="frontside">
+                                        <div class="card">
+                                            <div class="card-body text-center">
+                                                <p><img class=" img-fluid" src="http://www.jecc.ac.in/uploads/staffs/{{con.StaffID}}.jpg" alt="{{CON.Name}}"></p>
+                                               <h4 class="card-title">{{ con.Name }}</h4>
+                                                <p class="card-text">{{con.Designation}} <br> {{con.Department}} </p>
+                                                <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="backside" style="max-width: 15rem;min-width: 15rem;">
+                                        <div class="card">
+                                            <div class="card-body text-center mt-4">
+                                                <h4 class="card-title">{{ con.Name }}</h4>
+                                                <p class="card-text">Qualification<br>{{con.Qualification}}</p>
+                                                <div class="list-inline">
+                                                    <div class="list-inline-item">
+                                                        <i class="far fa-envelope"></i>&nbsp;
+                                                        <a class="social-icon text-xs-center" target="_blank" href="mailto:{{ con.Email }}">
+                                                            {{ con.Email }}
+                                                        </a>
+                                                    </div>
+                                                    <br>
+                                                    <div class="list-inline-item">
+                                                            <i class="fas fa-phone-volume"></i> &nbsp;
+                                                        <a class="social-icon text-xs-center" target="_blank" href="tel:{{con.Phone_Number}}">
+                                                            {{ con.Phone_Number }}
+                                                        </a>
+                                                    </div>
+                                                    <br> <br>
+                                                    <div class="list-inline-item">
+                                                            <i class="far fa-square"></i>
+                                                    </div>
+                                                    <div class="list-inline-item">
+                                                            <i class="far fa-square"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                        <!-- ./Team member -->
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+
+            <!-- CIVIL DEPARTMENT -->
+            <!-- ECE DEPARTMENT -->
+            <div align="center">
+                    <H1>ECE</H1><br>
+                    </div>
+                    <div class="row">
+                        {% for con in contact %}
+                        <!-- Team member -->
+                        {% if con.Department == "ECE" %}
+                       <li name="MyLi"> <div class="col-xs-12 col-sm-6 col-md-4" style="float: left;margin: 10px;max-width: 15rem;min-width: 15rem;">
+                            <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                                <div class="mainflip">
+                                    <div class="frontside">
+                                        <div class="card">
+                                            <div class="card-body text-center">
+                                                <p><img class=" img-fluid" src="http://www.jecc.ac.in/uploads/staffs/{{con.StaffID}}.jpg" alt="{{CON.Name}}"></p>
+                                               <h4 class="card-title">{{ con.Name }}</h4>
+                                                <p class="card-text">{{con.Designation}} <br> {{con.Department}} </p>
+                                                <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="backside" style="max-width: 15rem;min-width: 15rem;">
+                                        <div class="card">
+                                            <div class="card-body text-center mt-4">
+                                                <h4 class="card-title">{{ con.Name }}</h4>
+                                                <p class="card-text">Qualification<br>{{con.Qualification}}</p>
+                                                <div class="list-inline">
+                                                    <div class="list-inline-item">
+                                                        <i class="far fa-envelope"></i>&nbsp;
+                                                        <a class="social-icon text-xs-center" target="_blank" href="mailto:{{ con.Email }}">
+                                                            {{ con.Email }}
+                                                        </a>
+                                                    </div>
+                                                    <br>
+                                                    <div class="list-inline-item">
+                                                            <i class="fas fa-phone-volume"></i> &nbsp;
+                                                        <a class="social-icon text-xs-center" target="_blank" href="tel:{{con.Phone_Number}}">
+                                                            {{ con.Phone_Number }}
+                                                        </a>
+                                                    </div>
+                                                    <br> <br>
+                                                    <div class="list-inline-item">
+                                                            <i class="far fa-square"></i>
+                                                    </div>
+                                                    <div class="list-inline-item">
+                                                            <i class="far fa-square"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                        <!-- ./Team member -->
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    <!-- ECE DEPARTMENT -->
+                    
+                    <!-- EEE DEPARTMENT -->
+                    <div align="center">
+                            <H1>EEE</H1><br>
+                            </div>
+                            <div class="row">
+                                {% for con in contact %}
+                                <!-- Team member -->
+                                {% if con.Department == "EEE" %}
+                               <li name="MyLi"> <div class="col-xs-12 col-sm-6 col-md-4" style="float: left;margin: 10px;max-width: 15rem;min-width: 15rem;">
+                                    <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                                        <div class="mainflip">
+                                            <div class="frontside">
+                                                <div class="card">
+                                                    <div class="card-body text-center">
+                                                        <p><img class=" img-fluid" src="http://www.jecc.ac.in/uploads/staffs/{{con.StaffID}}.jpg" alt="{{CON.Name}}"></p>
+                                                       <h4 class="card-title">{{ con.Name }}</h4>
+                                                        <p class="card-text">{{con.Designation}} <br> {{con.Department}} </p>
+                                                        <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="backside" style="min-width: 15rem">
+                                                <div class="card">
+                                                    <div class="card-body text-center mt-4">
+                                                        <h4 class="card-title">{{ con.Name }}</h4>
+                                                        <p class="card-text">Qualification<br>{{con.Qualification}}</p>
+                                                        <div class="list-inline">
+                                                            <div class="list-inline-item">
+                                                                <i class="far fa-envelope"></i>&nbsp;
+                                                                <a class="social-icon text-xs-center" target="_blank" href="mailto:{{ con.Email }}">
+                                                                    {{ con.Email }}
+                                                                </a>
+                                                            </div>
+                                                            <br>
+                                                            <div class="list-inline-item">
+                                                                    <i class="fas fa-phone-volume"></i> &nbsp;
+                                                                <a class="social-icon text-xs-center" target="_blank" href="tel:{{con.Phone_Number}}">
+                                                                    {{ con.Phone_Number }}
+                                                                </a>
+                                                            </div>
+                                                            <br> <br>
+                                                            <div class="list-inline-item">
+                                                                    <i class="far fa-square"></i>
+                                                            </div>
+                                                            <div class="list-inline-item">
+                                                                    <i class="far fa-square"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                                <!-- ./Team member -->
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+
+                    <!-- ECE DEPARTMENT ! -->
+
+                    <div align="center">
+                            <H1>ME</H1><br>
+                            </div>
+                            <div class="row">
+                                {% for con in contact %}
+                                <!-- Team member -->
+                                {% if con.Department == "ME" %}
+                               <li name="MyLi"> <div class="col-xs-12 col-sm-6 col-md-4" style="float: left;margin: 10px;max-width: 15rem;min-width: 15rem;">
+                                    <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                                        <div class="mainflip">
+                                            <div class="frontside">
+                                                <div class="card">
+                                                    <div class="card-body text-center">
+                                                        <p><img class=" img-fluid" src="http://www.jecc.ac.in/uploads/staffs/{{con.StaffID}}.jpg" alt="{{CON.Name}}"></p>
+                                                       <h4 class="card-title">{{ con.Name }}</h4>
+                                                        <p class="card-text">{{con.Designation}} <br> {{con.Department}} </p>
+                                                        <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="backside" style="min-width: 15rem">
+                                                <div class="card">
+                                                    <div class="card-body text-center mt-4">
+                                                        <h4 class="card-title">{{ con.Name }}</h4>
+                                                        <p class="card-text">Qualification<br>{{con.Qualification}}</p>
+                                                        <div class="list-inline">
+                                                            <div class="list-inline-item">
+                                                                <i class="far fa-envelope"></i>&nbsp;
+                                                                <a class="social-icon text-xs-center" target="_blank" href="mailto:{{ con.Email }}">
+                                                                    {{ con.Email }}
+                                                                </a>
+                                                            </div>
+                                                            <br>
+                                                            <div class="list-inline-item">
+                                                                    <i class="fas fa-phone-volume"></i> &nbsp;
+                                                                <a class="social-icon text-xs-center" target="_blank" href="tel:{{con.Phone_Number}}">
+                                                                    {{ con.Phone_Number }}
+                                                                </a>
+                                                            </div>
+                                                            <br> <br>
+                                                            <div class="list-inline-item">
+                                                                    <i class="far fa-square"></i>
+                                                            </div>
+                                                            <div class="list-inline-item">
+                                                                    <i class="far fa-square"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                                <!-- ./Team member -->
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+
+                            <div align="center">
+                                    <H1>BSH</H1><br>
+                                    </div>
+                                    <div class="row">
+                                        {% for con in contact %}
+                                        <!-- Team member -->
+                                        {% if con.Department == "BSH" %}
+                                       <li name="MyLi"> <div class="col-xs-12 col-sm-6 col-md-4" style="float: left;margin: 10px;max-width: 15rem;min-width: 15rem;">
+                                            <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                                                <div class="mainflip">
+                                                    <div class="frontside">
+                                                        <div class="card">
+                                                            <div class="card-body text-center">
+                                                                <p><img class=" img-fluid" src="http://www.jecc.ac.in/uploads/staffs/{{con.StaffID}}.jpg" alt="{{CON.Name}}"></p>
+                                                               <h4 class="card-title">{{ con.Name }}</h4>
+                                                                <p class="card-text">{{con.Designation}} <br> {{con.Department}} </p>
+                                                                <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="backside" style="min-width: 15rem">
+                                                        <div class="card">
+                                                            <div class="card-body text-center mt-4">
+                                                                <h4 class="card-title">{{ con.Name }}</h4>
+                                                                <p class="card-text">Qualification<br>{{con.Qualification}}</p>
+                                                                <div class="list-inline">
+                                                                    <div class="list-inline-item">
+                                                                        <i class="far fa-envelope"></i>&nbsp;
+                                                                        <a class="social-icon text-xs-center" target="_blank" href="mailto:{{ con.Email }}">
+                                                                            {{ con.Email }}
+                                                                        </a>
+                                                                    </div>
+                                                                    <br>
+                                                                    <div class="list-inline-item">
+                                                                            <i class="fas fa-phone-volume"></i> &nbsp;
+                                                                        <a class="social-icon text-xs-center" target="_blank" href="tel:{{con.Phone_Number}}">
+                                                                            {{ con.Phone_Number }}
+                                                                        </a>
+                                                                    </div>
+                                                                    <br> <br>
+                                                                    <div class="list-inline-item">
+                                                                            <i class="far fa-square"></i>
+                                                                    </div>
+                                                                    <div class="list-inline-item">
+                                                                            <i class="far fa-square"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                        <!-- ./Team member -->
+                                        {% endif %}
+                                        {% endfor %}
+                                    </div>
+
+        </div>
+        {% else %}
+            <p>No access records found!</p>
+            {% endif %}
+        </ul>
+    </section>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- template end -->
+    
+    
+    <script>
+        function myFunction() {
+          // Declare variables
+          var input, filter, ul, li, a, i, txtValue;
+          input = document.getElementById('myInput');
+          filter = input.value.toUpperCase();
+          ul = document.getElementById("myUL");
+          li = ul.getElementsByTagName('li');
+        
+          // Loop through all list items, and hide those who don't match the search query
+          for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("div")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              li[i].style.display = "";
+            } else {
+              li[i].style.display = "none";
+            }
+          }
+        }
+        </script>
+</body>
+</html>
